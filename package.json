@@ -25,7 +25,11 @@
     "prettier-config-aux": "^1.0.1"
   },
   "dependencies": {
+    "autoprefixer": "^9.4.10",
     "next": "^8.0.3",
+    "next-compose-plugins": "^2.1.1",
+    "next-fonts": "^0.17.0",
+    "next-images": "^1.1.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
