@@ -6,6 +6,11 @@
   "repository": "https://github.com/AuxStudio/nextjs-simple-boilerplate",
   "author": "shaunsaker <shaun@aux.co.za>",
   "license": "MIT",
+  "scripts": {
+    "dev": "node src/server src/app",
+    "build": "next build src/app",
+    "start": "next start src/app"
+  },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
     "eslint": "^5.15.1",
@@ -15,11 +20,13 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
+    "express": "^4.16.4",
     "prettier": "^1.16.4",
     "prettier-config-aux": "^1.0.1"
   },
   "dependencies": {
     "next": "^8.0.3",
+    "prop-types": "^15.7.2",
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
   }
