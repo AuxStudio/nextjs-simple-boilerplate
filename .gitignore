@@ -8,3 +8,4 @@ settings.json
 
 # next
 .next
+.env
