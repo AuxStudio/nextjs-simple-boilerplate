@@ -17,5 +17,10 @@
     "eslint-plugin-react": "^7.12.4",
     "prettier": "^1.16.4",
     "prettier-config-aux": "^1.0.1"
+  },
+  "dependencies": {
+    "next": "^8.0.3",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
   }
 }
