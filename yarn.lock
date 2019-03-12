@@ -946,6 +946,12 @@ prettier-config-aux@^0.1.0:
   dependencies:
     prettier "^1.16.4"
 
+prettier-config-aux@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/prettier-config-aux/-/prettier-config-aux-1.0.1.tgz#af925aa1092f30eb1e715069cf5f871ca9409b83"
+  dependencies:
+    prettier "^1.16.4"
+
 prettier-linter-helpers@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/prettier-linter-helpers/-/prettier-linter-helpers-1.0.0.tgz#d23d41fe1375646de2d0104d3454a3008802cf7b"
