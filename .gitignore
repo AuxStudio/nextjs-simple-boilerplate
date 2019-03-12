@@ -1,2 +1,7 @@
 node_modules
+
+# iOS
 .DS_Store
+
+# VSCode
+settings.json
