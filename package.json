@@ -27,7 +27,7 @@
   "dependencies": {
     "autoprefixer": "^9.4.10",
     "firebase": "^5.8.6",
-    "js-simple-utils": "^1.0.4",
+    "js-simple-utils": "^1.0.5",
     "next": "^8.0.3",
     "next-compose-plugins": "^2.1.1",
     "next-fonts": "^0.17.0",
