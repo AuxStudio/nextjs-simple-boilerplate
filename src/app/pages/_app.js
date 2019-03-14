@@ -6,10 +6,13 @@ import withReduxSaga from 'next-redux-saga';
 import { PersistGate } from 'redux-persist/integration/react';
 import { persistStore } from 'redux-persist';
 
-import globalStyles from '../static/styles/global';
+import { global, helpers } from '../static/styles';
 import configureStore from '../store';
 
 import Head from '../components/Head';
+import DataHandler from '../handlers/DataHandler';
+import PageLoadingHandler from '../handlers/PageLoadingHandler';
+import SystemMessageHandler from '../handlers/SystemMessageHandler';
 
 export class TheApp extends App {
   constructor(props) {
@@ -43,10 +46,20 @@ export class TheApp extends App {
             <Head />
 
             <style jsx global>
-              {globalStyles}
+              {global}
+            </style>
+
+            <style jsx global>
+              {helpers}
             </style>
 
             <Component {...pageProps} />
+
+            <DataHandler />
+
+            <PageLoadingHandler />
+
+            <SystemMessageHandler />
           </PersistGate>
         </Provider>
       </Container>
