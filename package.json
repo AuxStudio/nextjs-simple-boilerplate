@@ -37,6 +37,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
+    "react-ga": "^2.5.7",
     "react-icons": "^3.5.0",
     "react-redux": "^6.0.1",
     "redux": "^4.0.1",

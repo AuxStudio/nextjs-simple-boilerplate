@@ -2,12 +2,10 @@ import deleteFile from './deleteFile';
 import getRef from './getRef';
 import uploadFile from './uploadFile';
 
-const storage = {
+export { deleteFile, getRef, uploadFile };
+
+export default {
   deleteFile,
   getRef,
   uploadFile,
 };
-
-export { deleteFile, getRef, uploadFile };
-
-export default storage;

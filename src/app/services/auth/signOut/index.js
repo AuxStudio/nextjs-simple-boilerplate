@@ -9,6 +9,6 @@ export default () => {
       .then((response) => {
         resolve(response);
       })
-      .catch((error) => reject(new Error(error)));
+      .catch((error) => reject(error));
   });
 };

@@ -1,15 +1,39 @@
+import addDocument from './addDocument';
 import batchUpdate from './batchUpdate';
+import deleteDocument from './deleteDocument';
+import disableNetwork from './disableNetwork';
+import enableNetwork from './enableNetwork';
+import getCollection from './getCollection';
+import getDocument from './getDocument';
 import getRef from './getRef';
 import setDocument from './setDocument';
 import sync from './sync';
+import updateDocument from './updateDocument';
 
-const firestore = {
+export {
+  addDocument,
   batchUpdate,
+  deleteDocument,
+  disableNetwork,
+  enableNetwork,
+  getCollection,
+  getDocument,
   getRef,
   setDocument,
   sync,
+  updateDocument,
 };
 
-export { batchUpdate, getRef, setDocument, sync };
-
-export default firestore;
+export default {
+  addDocument,
+  batchUpdate,
+  deleteDocument,
+  disableNetwork,
+  enableNetwork,
+  getCollection,
+  getDocument,
+  getRef,
+  setDocument,
+  sync,
+  updateDocument,
+};
