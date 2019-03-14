@@ -1,11 +1,11 @@
 import deleteFile from './deleteFile';
-import getRef from './getRef';
+import getStorageRef from './getStorageRef';
 import uploadFile from './uploadFile';
 
-export { deleteFile, getRef, uploadFile };
+export { deleteFile, getStorageRef, uploadFile };
 
 export default {
   deleteFile,
-  getRef,
+  getStorageRef,
   uploadFile,
 };

@@ -1,7 +1,7 @@
-import { getRef } from '..';
+import { getStorageRef } from '..';
 
 export default async (url, onFileDelete, onError) => {
-  const storageRef = await getRef();
+  const storageRef = await getStorageRef();
 
   try {
     storageRef
