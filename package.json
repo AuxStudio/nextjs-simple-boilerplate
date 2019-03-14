@@ -9,7 +9,8 @@
   "scripts": {
     "dev": "node src/server src/app",
     "build": "next build src/app",
-    "start": "next start src/app"
+    "start": "next start src/app",
+    "make-assets": "node ./src/scripts/makeAssets.js"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",

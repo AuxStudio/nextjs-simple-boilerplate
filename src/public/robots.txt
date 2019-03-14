@@ -1,0 +1,3 @@
+User-agent: *
+Sitemap: https://github.com/AuxStudio/nextjs-simple-boilerplate/sitemap.xml
+Disallow:

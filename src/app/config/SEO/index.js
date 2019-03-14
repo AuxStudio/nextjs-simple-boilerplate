@@ -1,4 +1,6 @@
-const appURL = 'https://github.com/AuxStudio/nextjs-simple-boilerplate';
+import app from '../app';
+
+const { url } = app;
 const title = 'nextjs-simple-boilerplate';
 const description = 'A Next.js, Firebase and Redux boilerplate that we use internally';
 
@@ -8,10 +10,10 @@ const SEO = {
   openGraph: {
     type: 'website',
     locale: 'en_IE',
-    url: appURL,
+    url,
     title,
     description,
-    image: `${appURL}/static/images/open-graph.png`,
+    image: `${url}/static/images/open-graph.png`,
     imageWidth: 1200,
     imageHeight: 630,
     site_name: 'nextjs-simple-boilerplate',
