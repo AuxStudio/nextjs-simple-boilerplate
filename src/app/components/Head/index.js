@@ -80,6 +80,12 @@ const HeadComponent = ({ router }) => {
       <meta key="og:locale" property="og:locale" content={SEO.openGraph.locale} />
       <meta key="twitter:card" name="twitter:card" content={SEO.twitter.cardType} />
       <meta key="twitter:site" name="twitter:site" content={SEO.twitter.handle} />
+
+      {/* Normalize css */}
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      />
     </Head>
   );
 };
