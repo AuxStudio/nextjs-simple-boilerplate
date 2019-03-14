@@ -10,6 +10,8 @@ import { global, helpers } from '../static/styles';
 import configureStore from '../store';
 
 import Head from '../components/Head';
+
+import AnalyticsHandler from '../handlers/AnalyticsHandler';
 import DataHandler from '../handlers/DataHandler';
 import PageLoadingHandler from '../handlers/PageLoadingHandler';
 import SystemMessageHandler from '../handlers/SystemMessageHandler';
@@ -54,6 +56,8 @@ export class TheApp extends App {
             </style>
 
             <Component {...pageProps} />
+
+            <AnalyticsHandler />
 
             <DataHandler />
 
