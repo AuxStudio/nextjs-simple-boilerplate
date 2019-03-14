@@ -9,3 +9,4 @@ settings.json
 # next
 .next
 .env
+out
