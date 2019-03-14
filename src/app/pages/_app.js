@@ -14,6 +14,7 @@ import Version from '../components/Version';
 
 import AnalyticsHandler from '../handlers/AnalyticsHandler';
 import DataHandler from '../handlers/DataHandler';
+import ErrorHandler from '../handlers/ErrorHandler';
 import PageLoadingHandler from '../handlers/PageLoadingHandler';
 import SystemMessageHandler from '../handlers/SystemMessageHandler';
 
@@ -43,33 +44,35 @@ export class TheApp extends App {
     const { Component, pageProps, store } = this.props;
 
     return (
-      <Container>
-        <Provider store={store}>
-          <PersistGate loading={null} persistor={this.persistor}>
-            <Head />
+      <ErrorHandler>
+        <Container>
+          <Provider store={store}>
+            <PersistGate loading={null} persistor={this.persistor}>
+              <Head />
 
-            <style jsx global>
-              {global}
-            </style>
+              <style jsx global>
+                {global}
+              </style>
 
-            <style jsx global>
-              {helpers}
-            </style>
+              <style jsx global>
+                {helpers}
+              </style>
 
-            <Component {...pageProps} />
+              <Component {...pageProps} />
 
-            <Version />
+              <Version />
 
-            <AnalyticsHandler />
+              <AnalyticsHandler />
 
-            <DataHandler />
+              <DataHandler />
 
-            <PageLoadingHandler />
+              <PageLoadingHandler />
 
-            <SystemMessageHandler />
-          </PersistGate>
-        </Provider>
-      </Container>
+              <SystemMessageHandler />
+            </PersistGate>
+          </Provider>
+        </Container>
+      </ErrorHandler>
     );
   }
 }
