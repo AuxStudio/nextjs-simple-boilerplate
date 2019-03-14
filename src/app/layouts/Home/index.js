@@ -5,7 +5,7 @@ import styles from './styles';
 
 const Home = () => {
   return (
-    <div className="container">
+    <div className="container flex-center">
       <h1>Hello World</h1>
 
       <style jsx>{styles}</style>
