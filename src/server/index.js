@@ -11,19 +11,13 @@ app
   .then(() => {
     const server = express();
 
-    server.get('/category/:id', (req, res) => {
-      const actualPage = '/category';
-      const queryParams = { id: req.params.id };
+    // Dynamic page example
+    // server.get('/category/:id', (req, res) => {
+    //   const actualPage = '/category';
+    //   const queryParams = { id: req.params.id };
 
-      app.render(req, res, actualPage, queryParams);
-    });
-
-    server.get('/shoot/:id', (req, res) => {
-      const actualPage = '/shoot';
-      const queryParams = { id: req.params.id };
-
-      app.render(req, res, actualPage, queryParams);
-    });
+    //   app.render(req, res, actualPage, queryParams);
+    // });
 
     server.get('*', (req, res) => {
       return handle(req, res);
