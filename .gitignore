@@ -1,6 +1,6 @@
 node_modules
 
-# iOS
+# Mac
 .DS_Store
 
 # VSCode
@@ -10,3 +10,7 @@ settings.json
 .next
 .env
 out
+dist
+
+# firebase
+firebase-debug.log
