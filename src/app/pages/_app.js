@@ -58,7 +58,9 @@ export class TheApp extends App {
                 {helpers}
               </style>
 
-              <Component {...pageProps} />
+              <SystemMessageHandler>
+                <Component {...pageProps} />
+              </SystemMessageHandler>
 
               <Version />
 
@@ -67,8 +69,6 @@ export class TheApp extends App {
               <DataHandler />
 
               <PageLoadingHandler />
-
-              <SystemMessageHandler />
             </PersistGate>
           </Provider>
         </Container>

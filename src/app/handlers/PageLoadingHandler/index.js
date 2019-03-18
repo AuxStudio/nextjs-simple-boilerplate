@@ -62,15 +62,15 @@ export class PageLoadingHandler extends React.Component {
   }
 
   setSavingSystemMessage() {
-    const { dispatch } = this.props;
-
-    dispatch({
-      type: 'SET_SYSTEM_MESSAGE',
-      payload: {
-        message: 'Saving',
-        isLoading: true,
-      },
-    });
+    // TODO:
+    // const { dispatch } = this.props;
+    // dispatch({
+    //   type: 'SET_SYSTEM_MESSAGE',
+    //   payload: {
+    //     message: 'Saving',
+    //     isLoading: true,
+    //   },
+    // });
   }
 
   render() {

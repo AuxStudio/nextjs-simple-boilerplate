@@ -1,53 +1,24 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { SnackbarProvider } from 'notistack';
 
-import Snackbar from '../../components/Snackbar';
+import SnackbarHandler from './SnackbarHandler';
 
-export class SystemMessageHandler extends React.Component {
-  constructor(props) {
-    super(props);
+const SystemMessageHandler = ({ children }) => {
+  return (
+    <SnackbarProvider maxSnack={3}>
+      <Fragment>
+        {children}
 
-    this.onClose = this.onClose.bind(this);
-    this.resetSystemMessage = this.resetSystemMessage.bind(this);
+        <SnackbarHandler />
+      </Fragment>
+    </SnackbarProvider>
+  );
+};
 
-    this.state = {};
-  }
+SystemMessageHandler.propTypes = {
+  children: PropTypes.node,
+};
+SystemMessageHandler.defaultProps = {};
 
-  static propTypes = {
-    dispatch: PropTypes.func,
-    systemMessage: PropTypes.shape({}),
-  };
-
-  static defaultProps = {};
-
-  onClose() {
-    this.resetSystemMessage();
-  }
-
-  resetSystemMessage() {
-    const { dispatch } = this.props;
-
-    dispatch({
-      type: 'RESET_SYSTEM_MESSAGE',
-    });
-  }
-
-  render() {
-    const { systemMessage } = this.props;
-    const { message } = systemMessage;
-
-    return message && <Snackbar {...systemMessage} handleClose={this.onClose} />;
-  }
-}
-
-function mapStateToProps(state) {
-  const { appState } = state;
-  const { systemMessage } = appState;
-
-  return {
-    systemMessage,
-  };
-}
-
-export default connect(mapStateToProps)(SystemMessageHandler);
+export default SystemMessageHandler;
