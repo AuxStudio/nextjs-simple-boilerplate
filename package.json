@@ -27,6 +27,7 @@
     "prettier-config-aux": "^1.0.1"
   },
   "dependencies": {
+    "@material-ui/core": "^3.9.2",
     "autoprefixer": "^9.4.10",
     "firebase": "^5.8.6",
     "js-simple-utils": "^1.0.5",
