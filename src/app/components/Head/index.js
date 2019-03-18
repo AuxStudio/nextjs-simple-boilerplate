@@ -86,6 +86,9 @@ const HeadComponent = ({ router }) => {
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
       />
+
+      {/* material-ui */}
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
     </Head>
   );
 };

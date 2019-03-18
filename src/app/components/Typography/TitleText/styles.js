@@ -6,13 +6,11 @@ const { colors } = styleConstants;
 
 const styles = css`
   h1 {
-    font-family: 'Arial', sans-serif;
-    font-weight: 400;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    font-size: 20px;
-    line-height: 24px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 48px;
     color: ${colors.black};
+    font-weight: 700;
+    text-transform: uppercase;
   }
 `;
 
