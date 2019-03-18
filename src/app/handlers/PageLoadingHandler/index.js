@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import Router from 'next/router';
 import { connect } from 'react-redux';
 
-import Spinner from '../../components/Spinner';
+import CircularProgress from '../../components/CircularProgress';
+import LinearProgress from '../../components/LinearProgress';
 
 export class PageLoadingHandler extends React.Component {
   constructor(props) {
@@ -20,7 +21,7 @@ export class PageLoadingHandler extends React.Component {
   }
 
   static propTypes = {
-    pendingTransactions: PropTypes.arrayOf(PropTypes.shape({})),
+    isSaving: PropTypes.bool,
     dispatch: PropTypes.func,
   };
 
@@ -29,17 +30,6 @@ export class PageLoadingHandler extends React.Component {
   componentDidMount() {
     Router.events.on('routeChangeStart', this.onRouteChangeStart);
     Router.events.on('routeChangeComplete', this.onRouteChangeComplete);
-  }
-
-  componentDidUpdate(prevProps) {
-    const { pendingTransactions } = this.props;
-
-    // IF pt has length
-    // IF previous pt does not have length
-    // THEN we are loading
-    if (pendingTransactions.length && !prevProps.pendingTransactions.length) {
-      this.setSavingSystemMessage();
-    }
   }
 
   componentWillUnmount() {
@@ -75,11 +65,20 @@ export class PageLoadingHandler extends React.Component {
 
   render() {
     const { isLoading } = this.state;
+    const { isSaving } = this.props;
 
     if (isLoading) {
       return (
-        <div className="fixed stretch flex-center">
-          <Spinner />
+        <div className="flex fixed stretch flex-center">
+          <CircularProgress />
+        </div>
+      );
+    }
+
+    if (isSaving) {
+      return (
+        <div className="flex fixed stretch">
+          <LinearProgress />
         </div>
       );
     }
@@ -91,9 +90,10 @@ export class PageLoadingHandler extends React.Component {
 const mapStateToProps = (state) => {
   const { appState } = state;
   const { pendingTransactions } = appState;
+  const isSaving = pendingTransactions.length ? true : false;
 
   return {
-    pendingTransactions,
+    isSaving,
   };
 };
 
