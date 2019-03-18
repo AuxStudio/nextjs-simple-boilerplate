@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
-import styles from './styles';
+import { styleConstants } from '../../config';
+
+const { colors } = styleConstants;
 
 const Spinner = ({ small }) => {
-  return (
-    <div className={`container ${small ? 'small' : ''}`}>
-      <style jsx>{styles}</style>
-    </div>
-  );
+  const size = small ? 20 : 40;
+
+  return <CircularProgress size={size} style={{ color: colors.primary }} />;
 };
 
 Spinner.propTypes = {
