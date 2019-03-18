@@ -22,17 +22,6 @@ export class SnackbarHandler extends React.Component {
 
   static defaultProps = {};
 
-  componentDidMount() {
-    const { dispatch } = this.props;
-
-    dispatch({
-      type: 'SET_SYSTEM_MESSAGE',
-      payload: {
-        message: 'Testing',
-      },
-    });
-  }
-
   componentDidUpdate(prevProps) {
     const { systemMessage, enqueueSnackbar } = this.props;
     const { message, variant } = systemMessage;
@@ -44,6 +33,7 @@ export class SnackbarHandler extends React.Component {
           vertical: 'bottom',
           horizontal: 'left',
         },
+        autoHideDuration: 4000,
         action: (
           <IconButton>
             <CloseIcon style={{ color: 'white' }} />
