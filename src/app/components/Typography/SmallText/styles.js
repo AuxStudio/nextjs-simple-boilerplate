@@ -6,7 +6,7 @@ const { colors } = styleConstants;
 
 const styles = css`
   small {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     line-height: 20px;
     color: ${colors.grey};

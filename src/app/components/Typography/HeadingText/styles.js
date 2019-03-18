@@ -6,7 +6,7 @@ const { colors } = styleConstants;
 
 const styles = css`
   h2 {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     letter-spacing: 3px;
     text-transform: uppercase;
