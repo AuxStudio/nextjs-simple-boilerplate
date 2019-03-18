@@ -21,11 +21,6 @@ const styles = css.global`
     -moz-osx-font-smoothing: grayscale;
   }
 
-  div {
-    display: flex;
-    flex-direction: column;
-  }
-
   img {
     width: 100%;
     max-width: 100%;

@@ -7,7 +7,7 @@ import { TitleText } from '../../components/Typography';
 
 const Home = () => {
   return (
-    <div className="container flex-center">
+    <div className="container flex flex-center">
       <TitleText>Hello World</TitleText>
 
       <style jsx>{styles}</style>
