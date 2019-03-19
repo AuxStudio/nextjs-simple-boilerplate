@@ -34,3 +34,7 @@ yarn run build
 yarn run export
 
 ```
+
+In the `export` step, `robots.txt` and `sitemap.xml` will be created and assets will be copied from `./src/public` to `./dist`.
+
+You will deploy the dist folder to your host.

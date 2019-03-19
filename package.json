@@ -11,7 +11,9 @@
     "build": "next build src/app",
     "start": "next start src/app",
     "export": "next export src/app --outdir dist",
-    "make-assets": "node ./src/scripts/makeAssets.js"
+    "postexport": "yarn run makeassets",
+    "makeassets": "node ./src/scripts/makeAssets.js",
+    "postmakeassets": "cp -a ./src/public/. ./dist/"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
