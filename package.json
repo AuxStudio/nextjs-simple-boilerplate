@@ -13,7 +13,10 @@
     "export": "next export src/app --outdir dist",
     "postexport": "yarn run makeassets",
     "makeassets": "node ./src/scripts/makeAssets.js",
-    "postmakeassets": "cp -a ./src/public/. ./dist/"
+    "postmakeassets": "yarn run copyassets",
+    "copyassets": "cp -a ./src/public/. ./dist/",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
@@ -26,7 +29,13 @@
     "eslint-plugin-react": "^7.12.4",
     "express": "^4.16.4",
     "prettier": "^1.16.4",
-    "prettier-config-aux": "^1.0.1"
+    "prettier-config-aux": "^1.0.1",
+    "@storybook/react": "^5.0.3",
+    "@storybook/addon-actions": "^5.0.3",
+    "@storybook/addon-links": "^5.0.3",
+    "@storybook/addons": "^5.0.3",
+    "@babel/core": "^7.3.4",
+    "babel-loader": "^8.0.5"
   },
   "dependencies": {
     "@material-ui/core": "^3.9.2",
