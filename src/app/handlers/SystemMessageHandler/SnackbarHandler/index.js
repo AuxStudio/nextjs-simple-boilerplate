@@ -5,6 +5,8 @@ import { withSnackbar } from 'notistack';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 
+import { snackbar } from '../../../config';
+
 export class SnackbarHandler extends React.Component {
   constructor(props) {
     super(props);
@@ -28,12 +30,8 @@ export class SnackbarHandler extends React.Component {
 
     if (message && message !== prevProps.systemMessage.message) {
       enqueueSnackbar(message, {
-        variant: variant || 'default',
-        anchorOrigin: {
-          vertical: 'bottom',
-          horizontal: 'left',
-        },
-        autoHideDuration: 4000,
+        ...snackbar,
+        variant,
         action: (
           <IconButton>
             <CloseIcon style={{ color: 'white' }} />

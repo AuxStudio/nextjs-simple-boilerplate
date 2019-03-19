@@ -60,15 +60,15 @@ export class TheApp extends App {
 
               <SystemMessageHandler>
                 <Component {...pageProps} />
+
+                <AnalyticsHandler />
+
+                <DataHandler />
+
+                <PageLoadingHandler />
+
+                <Version />
               </SystemMessageHandler>
-
-              <Version />
-
-              <AnalyticsHandler />
-
-              <DataHandler />
-
-              <PageLoadingHandler />
             </PersistGate>
           </Provider>
         </Container>

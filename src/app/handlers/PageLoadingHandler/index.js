@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Router from 'next/router';
 import { connect } from 'react-redux';
+import { withSnackbar } from 'notistack';
+
+import { snackbar } from '../../config';
 
 import CircularProgress from '../../components/CircularProgress';
 import LinearProgress from '../../components/LinearProgress';
@@ -13,7 +16,7 @@ export class PageLoadingHandler extends React.Component {
     this.onRouteChangeStart = this.onRouteChangeStart.bind(this);
     this.onRouteChangeComplete = this.onRouteChangeComplete.bind(this);
     this.setIsLoading = this.setIsLoading.bind(this);
-    this.setSavingSystemMessage = this.setSavingSystemMessage.bind(this);
+    this.setSavedMessage = this.setSavedMessage.bind(this);
 
     this.state = {
       isLoading: false,
@@ -22,7 +25,7 @@ export class PageLoadingHandler extends React.Component {
 
   static propTypes = {
     isSaving: PropTypes.bool,
-    dispatch: PropTypes.func,
+    enqueueSnackbar: PropTypes.func, // notistack
   };
 
   static defaultProps = {};
@@ -30,6 +33,14 @@ export class PageLoadingHandler extends React.Component {
   componentDidMount() {
     Router.events.on('routeChangeStart', this.onRouteChangeStart);
     Router.events.on('routeChangeComplete', this.onRouteChangeComplete);
+  }
+
+  componentDidUpdate(prevProps) {
+    const { isSaving } = this.props;
+
+    if (!isSaving && prevProps.isSaving) {
+      this.setSavedMessage();
+    }
   }
 
   componentWillUnmount() {
@@ -51,16 +62,10 @@ export class PageLoadingHandler extends React.Component {
     });
   }
 
-  setSavingSystemMessage() {
-    // TODO:
-    // const { dispatch } = this.props;
-    // dispatch({
-    //   type: 'SET_SYSTEM_MESSAGE',
-    //   payload: {
-    //     message: 'Saving',
-    //     isLoading: true,
-    //   },
-    // });
+  setSavedMessage() {
+    const { enqueueSnackbar } = this.props;
+
+    enqueueSnackbar('Saved successfully', { ...snackbar, variant: 'success' });
   }
 
   render() {
@@ -97,4 +102,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(PageLoadingHandler);
+export default withSnackbar(connect(mapStateToProps)(PageLoadingHandler));
