@@ -2,6 +2,16 @@
 
 A Next.js, Firebase and Redux boilerplate that we use internally
 
+## Get Started
+
+1. Clone the project:
+
+```
+git clone https://github.com/AuxStudio/nextjs-simple-boilerplate
+```
+
+TODO
+
 ## Development
 
 1. Clone the project:
