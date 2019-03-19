@@ -16,10 +16,21 @@
     "postmakeassets": "yarn run copyassets",
     "copyassets": "cp -a ./src/public/. ./dist/",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "test": "jest"
   },
   "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@storybook/addon-actions": "^5.0.3",
+    "@storybook/addon-links": "^5.0.3",
+    "@storybook/addons": "^5.0.3",
+    "@storybook/react": "^5.0.3",
+    "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.5.0",
+    "babel-loader": "^8.0.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
     "eslint": "^5.15.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-aux": "^1.0.5",
@@ -28,14 +39,10 @@
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
     "express": "^4.16.4",
+    "jest": "^24.5.0",
     "prettier": "^1.16.4",
     "prettier-config-aux": "^1.0.1",
-    "@storybook/react": "^5.0.3",
-    "@storybook/addon-actions": "^5.0.3",
-    "@storybook/addon-links": "^5.0.3",
-    "@storybook/addons": "^5.0.3",
-    "@babel/core": "^7.3.4",
-    "babel-loader": "^8.0.5"
+    "react-test-renderer": "^16.8.4"
   },
   "dependencies": {
     "@material-ui/core": "^3.9.2",

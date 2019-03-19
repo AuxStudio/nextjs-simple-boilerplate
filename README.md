@@ -44,3 +44,9 @@ You will deploy the dist folder to your host.
 ```
 yarn run storybook
 ```
+
+## Testing
+
+```
+yarn run test
+```

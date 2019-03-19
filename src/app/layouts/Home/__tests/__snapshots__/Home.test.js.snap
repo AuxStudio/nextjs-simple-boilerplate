@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home renders renders with minimum required props 1`] = `
+<div
+  className="jsx-1031917824 container flex flex-center"
+>
+  <h1
+    className="jsx-2736794252"
+  >
+    Hello World
+  </h1>
+</div>
+`;
