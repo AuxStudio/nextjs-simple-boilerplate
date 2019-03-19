@@ -25,3 +25,12 @@ yarn run dev
 4. Do some work.
 
 5. Create a PR.
+
+## Export
+
+```
+
+yarn run build
+yarn run export
+
+```
