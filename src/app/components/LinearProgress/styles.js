@@ -1,4 +1,4 @@
-import { colors } from '../../static/styleConstants';
+import { colors } from '../../static/styles/styleConstants';
 
 const styles = {
   container: {

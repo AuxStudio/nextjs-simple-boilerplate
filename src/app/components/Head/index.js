@@ -4,7 +4,7 @@ import Head from 'next/head';
 import { withRouter } from 'next/router';
 
 import { routes, SEO } from '../../config';
-import { colors } from '../../static/styleConstants';
+import { colors } from '../../static/styles/styleConstants';
 
 const primaryColor = colors.primary;
 const defaultTitle = SEO.title;
