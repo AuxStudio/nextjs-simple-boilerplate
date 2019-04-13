@@ -18,40 +18,50 @@ import {
 import { get, post } from '../../services/http';
 import { deleteFile, getStorageRef, uploadFile } from '../../services/storage';
 
-import saga from './saga';
+import eventChannelSaga from './eventChannelSaga';
+import genericSaga from './genericSaga';
 
 export default function* sagas() {
   // Analytics
-  yield takeEvery('logEvent', saga, { service: logEvent, shouldTrackEvent: false });
+  yield takeEvery('logEvent', genericSaga, { service: logEvent });
 
   // Auth
-  yield takeEvery('getAuth', saga, { service: getAuth, shouldTrackEvent: false });
-  yield takeEvery('signInAnonymously', saga, {
+  yield takeEvery('getAuth', genericSaga, { service: getAuth });
+  yield takeEvery('signInAnonymously', genericSaga, {
     service: signInAnonymously,
     shouldTrackEvent: false,
   });
-  yield takeEvery('signInWithEmail', saga, { service: signInWithEmail, shouldTrackEvent: false });
-  yield takeEvery('signOut', saga, { service: signOut, shouldTrackEvent: false });
+  yield takeEvery('signInWithEmail', genericSaga, { service: signInWithEmail });
+  yield takeEvery('signOut', genericSaga, { service: signOut });
 
   // Firestore
-  yield takeEvery('addDocument', saga, { service: addDocument, shouldTrackEvent: false });
-  yield takeEvery('batchUpdate', saga, { service: batchUpdate, shouldTrackEvent: false });
-  yield takeEvery('deleteDocument', saga, { service: deleteDocument, shouldTrackEvent: false });
-  yield takeEvery('disableNetwork', saga, { service: disableNetwork, shouldTrackEvent: false });
-  yield takeEvery('enableNetwork', saga, { service: enableNetwork, shouldTrackEvent: false });
-  yield takeEvery('getCollection', saga, { service: getCollection, shouldTrackEvent: false });
-  yield takeEvery('getDocument', saga, { service: getDocument, shouldTrackEvent: false });
-  yield takeEvery('getRef', saga, { service: getRef, shouldTrackEvent: false });
-  yield takeEvery('setDocument', saga, { service: setDocument, shouldTrackEvent: false });
-  yield takeEvery('sync', saga, { service: sync, shouldTrackEvent: false });
-  yield takeEvery('updateDocument', saga, { service: updateDocument, shouldTrackEvent: false });
+  yield takeEvery('addDocument', genericSaga, { service: addDocument, shouldTrackEvent: true });
+  yield takeEvery('batchUpdate', genericSaga, { service: batchUpdate, shouldTrackEvent: true });
+  yield takeEvery('deleteDocument', genericSaga, {
+    service: deleteDocument,
+    shouldTrackEvent: true,
+  });
+  yield takeEvery('disableNetwork', genericSaga, { service: disableNetwork });
+  yield takeEvery('enableNetwork', genericSaga, { service: enableNetwork });
+  yield takeEvery('getCollection', genericSaga, { service: getCollection, shouldTrackEvent: true });
+  yield takeEvery('getDocument', genericSaga, { service: getDocument, shouldTrackEvent: true });
+  yield takeEvery('getRef', genericSaga, { service: getRef });
+  yield takeEvery('setDocument', genericSaga, { service: setDocument, shouldTrackEvent: true });
+  yield takeEvery('sync', eventChannelSaga, {
+    service: sync,
+    shouldTrackEvent: true,
+  });
+  yield takeEvery('updateDocument', genericSaga, {
+    service: updateDocument,
+    shouldTrackEvent: true,
+  });
 
   // HTTP
-  yield takeEvery('get', saga, { service: get, shouldTrackEvent: false });
-  yield takeEvery('post', saga, { service: post, shouldTrackEvent: false });
+  yield takeEvery('get', genericSaga, { service: get, shouldTrackEvent: true });
+  yield takeEvery('post', genericSaga, { service: post, shouldTrackEvent: true });
 
   // Storage
-  yield takeEvery('deleteFile', saga, { service: deleteFile, shouldTrackEvent: false });
-  yield takeEvery('getStorageRef', saga, { service: getStorageRef, shouldTrackEvent: false });
-  yield takeEvery('uploadFile', saga, { service: uploadFile, shouldTrackEvent: false });
+  yield takeEvery('deleteFile', genericSaga, { service: deleteFile, shouldTrackEvent: true });
+  yield takeEvery('getStorageRef', genericSaga, { service: getStorageRef });
+  yield takeEvery('uploadFile', genericSaga, { service: uploadFile, shouldTrackEvent: true });
 }
