@@ -1,7 +1,15 @@
 import { takeEvery } from 'redux-saga/effects';
 
 import { logEvent } from '../../services/analytics';
-import { getAuth, signInAnonymously, signInWithEmail, signOut } from '../../services/auth';
+import {
+  getAuth,
+  getPhoneAuthCredential,
+  linkWithCredential,
+  signInAnonymously,
+  signInWithEmail,
+  signInWithPhoneNumber,
+  signOut,
+} from '../../services/auth';
 import {
   addDocument,
   batchUpdate,
@@ -27,11 +35,14 @@ export default function* sagas() {
 
   // Auth
   yield takeEvery('getAuth', eventChannelSaga, { service: getAuth });
+  yield takeEvery('getPhoneAuthCredential', genericSaga, { service: getPhoneAuthCredential });
+  yield takeEvery('linkWithCredential', genericSaga, { service: linkWithCredential });
   yield takeEvery('signInAnonymously', genericSaga, {
     service: signInAnonymously,
     shouldTrackEvent: false,
   });
   yield takeEvery('signInWithEmail', genericSaga, { service: signInWithEmail });
+  yield takeEvery('signInWithPhoneNumber', genericSaga, { service: signInWithPhoneNumber });
   yield takeEvery('signOut', genericSaga, { service: signOut });
 
   // Firestore
