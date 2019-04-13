@@ -11,7 +11,7 @@ import { global, helpers, theme } from '../static/styles';
 import configureStore from '../store';
 
 import Head from '../components/Head';
-import Version from '../components/Version';
+import DevInfo from '../components/DevInfo';
 
 import AnalyticsHandler from '../handlers/AnalyticsHandler';
 import DataHandler from '../handlers/DataHandler';
@@ -69,7 +69,7 @@ export class TheApp extends App {
 
                   <PageLoadingHandler />
 
-                  <Version />
+                  <DevInfo />
                 </SystemMessageHandler>
               </PersistGate>
             </Provider>
