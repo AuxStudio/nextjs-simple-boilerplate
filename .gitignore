@@ -11,6 +11,9 @@ settings.json
 .env
 out
 dist
+src/public/robots.txt
+src/public/sitemap.xml
 
 # firebase
 firebase-debug.log
+
