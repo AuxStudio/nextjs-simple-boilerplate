@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 
 import styles from './styles';
 
-import { SmallText } from '../Typography';
+import Typography from '../Typography';
 
 const Version = ({ children }) => {
   return (
     <div className="container fixed">
-      <SmallText>{children}</SmallText>
+      <Typography type="small">{children}</Typography>
 
       <style jsx>{styles}</style>
     </div>
