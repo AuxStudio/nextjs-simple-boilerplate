@@ -26,7 +26,7 @@ export default function* sagas() {
   yield takeEvery('logEvent', genericSaga, { service: logEvent });
 
   // Auth
-  yield takeEvery('getAuth', genericSaga, { service: getAuth });
+  yield takeEvery('getAuth', eventChannelSaga, { service: getAuth });
   yield takeEvery('signInAnonymously', genericSaga, {
     service: signInAnonymously,
     shouldTrackEvent: false,
