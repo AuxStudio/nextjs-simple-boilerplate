@@ -1,8 +1,6 @@
 import css from 'styled-jsx/css'; // eslint-disable-line
 
-import { styleConstants } from '../../../config';
-
-const { colors } = styleConstants;
+import { colors } from '../../../static/styleConstants';
 
 const styles = css`
   h1 {

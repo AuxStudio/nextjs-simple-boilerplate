@@ -1,8 +1,6 @@
 import css from 'styled-jsx/css';
 
-import { styleConstants } from '../../../config';
-
-const { rhythm } = styleConstants;
+import { rhythm } from '../../styleConstants';
 
 const styles = css.global`
   .flex {

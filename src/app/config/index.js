@@ -4,10 +4,9 @@ import firebase from './firebase';
 import routes from './routes';
 import SEO from './SEO';
 import snackbar from './snackbar';
-import styleConstants from './styleConstants';
 import version from './version';
 
-export { analytics, app, firebase, routes, SEO, snackbar, styleConstants, version };
+export { analytics, app, firebase, routes, SEO, snackbar, version };
 
 export default {
   analytics,
@@ -16,6 +15,5 @@ export default {
   routes,
   SEO,
   snackbar,
-  styleConstants,
   version,
 };

@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { withRouter } from 'next/router';
 
-import { routes, SEO, styleConstants } from '../../config';
+import { routes, SEO } from '../../config';
+import { colors } from '../../static/styleConstants';
 
-const { colors } = styleConstants;
 const primaryColor = colors.primary;
 const defaultTitle = SEO.title;
 const defaultDescription = SEO.description;
