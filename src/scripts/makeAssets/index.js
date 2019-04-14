@@ -4,7 +4,7 @@ const formatDate = require('./formatDate');
 
 const getPathsObject = require('./getPagePaths');
 
-const app = require('../app/config/app');
+const app = require('../../app/config/app');
 
 const pathsObj = getPathsObject();
 
