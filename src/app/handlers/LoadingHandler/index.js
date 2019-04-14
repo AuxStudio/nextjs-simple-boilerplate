@@ -8,7 +8,7 @@ import styles from './styles';
 import PageLoader from './PageLoader';
 import LinearProgress from './LinearProgress';
 
-export class PageLoadingHandler extends React.Component {
+export class LoadingHandler extends React.Component {
   constructor(props) {
     super(props);
 
@@ -88,4 +88,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(PageLoadingHandler);
+export default connect(mapStateToProps)(LoadingHandler);
