@@ -20,4 +20,5 @@ src/public/sitemap.xml
 
 # firebase
 firebase-debug.log
+.firebaserc
 
