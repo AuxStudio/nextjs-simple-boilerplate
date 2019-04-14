@@ -1,7 +1,7 @@
 import events from './events';
 
 const analytics = {
-  trackingID: 'UA-126576130-4', // TODO:
+  trackingID: process.env.REACT_APP_GA_TRACKING_ID,
   events,
 };
 
