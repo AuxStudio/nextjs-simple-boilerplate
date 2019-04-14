@@ -7,6 +7,7 @@ const description = 'A Next.js, Firebase and Redux boilerplate that we use inter
 const SEO = {
   title, // default
   description, // default
+  keywords: 'nextjs boilerplate javascript react', // TODO: Replace this
   openGraph: {
     type: 'website',
     locale: 'en_IE',

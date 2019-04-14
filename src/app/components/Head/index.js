@@ -20,7 +20,10 @@ const HeadComponent = ({ router }) => {
     <Head>
       {/* Title and description */}
       <title key="title">{title}</title>
+
       <meta key="description" name="Description" content={description} />
+
+      <meta key="keywords" name="keywords" content={SEO.keywords} />
 
       {/* Responsiveness */}
       <meta
