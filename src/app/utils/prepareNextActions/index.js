@@ -5,9 +5,7 @@
 // e.g. showImagePicker, resizeImage, uploadFile, SET_SYSTEM_MESSAGE
 const prepareNextActions = (action, response) => {
   if (action.meta && action.meta.nextActions) {
-    const newNextActions = action.meta.nextActions;
-
-    newNextActions.map((nextAction) => {
+    const newNextActions = action.meta.nextActions.map((nextAction) => {
       return {
         ...nextAction,
         payload: {
