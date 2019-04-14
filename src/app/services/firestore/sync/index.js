@@ -12,37 +12,36 @@ export default ({ url, queries }, callback) => {
 
     const unsubscribe = ref.onSnapshot(
       (snapshot) => {
-        let collection;
-        let document;
+        let data;
 
         if (snapshot.docs) {
           /*
            * It's a collection
            */
-          collection = snapshot.docs.map((doc) => {
+          data = snapshot.docs.map((document) => {
             return {
-              ...doc.data(),
-              id: doc.id,
+              ...document.data(),
+              id: document.id,
             };
           });
         } else {
           /*
            * It's a document
            */
-          const data = snapshot.data();
+          const document = snapshot.data();
 
-          if (data) {
+          if (document) {
             /*
              * Only return the document if there is data in it
              */
-            document = {
+            data = {
               ...snapshot.data(),
               id: snapshot.id,
             };
           }
         }
 
-        callback({ collection, document });
+        callback({ data });
       },
       (error) => {
         callback({ error });

@@ -24,7 +24,7 @@ export default function getCollection({ url, query }) {
             };
           });
 
-          resolve({ collection: collectionArray });
+          resolve({ data: collectionArray });
         } catch (error) {
           if (collection.docs && true) {
             reject(new Error('References a document, not a collection'));
