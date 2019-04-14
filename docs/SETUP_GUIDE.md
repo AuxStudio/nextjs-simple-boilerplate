@@ -42,16 +42,57 @@ yarn
 
 ## 4. Make it your own
 
-TODO: Automate this step.
+FIXME: Automate this step. Take a look at cookie-cutter.
 
 1. Update `./package.json` name, description, repository etc.
-2. Update `./README.md` with your project title, description and repo url.
-3. In `./README.md`, remove the `Get Started` section.
-4. Search TODOS and replace as necessary.
-5. Update `./src/app/static/manifest.json` name and short_name.
-6. Update `./src/app/static/site.webmanifest` name and short_name.
+2. Update `./README.md` with your project title, description and repo url. Remove everything you don't need.
+3. Search TODOS and replace as necessary.
+4. Update `./src/app/static/manifest.json` name and short_name.
+5. Update `./src/app/static/site.webmanifest` name and short_name.
+6. Setup firebase remotely and locally:
 
-- Analytics tracking ID
-- Use and delete tools folder
-- Firebase setup with .env or multiple envs
-- Delete docs folder
+### Remotely
+
+Add your app to the Firebase console.
+
+### Locally
+
+```
+firebase init
+```
+
+Choose the hosting option.
+
+7. Add env files as appropriate (ie. you do not have to add all of the below, just add what you need). Create the following files:
+
+`./src/app/.env.dev`
+`./src/app/.env.testing`
+`./src/app/.env.staging`
+`./src/app/.env.production`
+
+8. Populate the env files:
+
+\*Replace `X` as needed.
+
+```
+REACT_APP_ENV=X
+
+REACT_APP_API_KEY=X
+REACT_APP_AUTH_DOMAIN=X
+REACT_APP_DATABASE_URL=X
+REACT_APP_PROJECT_ID=X
+REACT_APP_STORAGE_BUCKET=X
+REACT_APP_MESSAGING_SENDER_ID=X
+
+REACT_APP_GA_TRACKING_ID=X
+REACT_APP_GTM_ID=X
+```
+
+9. Add snippets to VSCode (see [Snippets](./tools/snippets.json)).
+
+10. Remove boilerplate files:
+
+```
+rm -R ./docs/*
+rm -R ./tools/*
+```
