@@ -1,21 +1,21 @@
 import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 
-import { business, SEO } from '../config';
+import { app, SEO } from '../config';
 
 /* eslint-disable no-tabs  */
 /* eslint-disable react/no-danger */
 const schema = `{
 	"@context": "http://schema.org",
-	"@type": "LocalBusiness",
+	"@type": "Localapp",
 	"name": "${SEO.title}",
   "description": "${SEO.description}",
   "openingHours": "${SEO.richText.openingHours}",
 	"image": "${SEO.openGraph.image}",
 	"logo": "${SEO.openGraph.image}",
 	"url": "${SEO.openGraph.url}",
-	"telephone": "${business.contactDetails.tel}",
-  "email": "${business.contactDetails.email}",
+	"telephone": "${app.contactDetails.tel}",
+  "email": "${app.contactDetails.email}",
 	"address": {
 		"@type": "PostalAddress",
 		"streetAddress": "${SEO.richText.streetAddress}",

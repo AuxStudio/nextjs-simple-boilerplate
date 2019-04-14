@@ -1,5 +1,12 @@
+// TODO: Customise all of this
 const app = {
-  url: 'https://github.com/AuxStudio/nextjs-simple-boilerplate', // TODO: Replace this URL
+  name: 'NextJS Simple Boilerplate',
+  url: 'https://github.com/AuxStudio/nextjs-simple-boilerplate',
+  contactDetails: {
+    email: 'sakershaun@gmail.com',
+    tel: '+27833771130',
+    address: 'Cape Town',
+  },
 };
 
-module.exports = app; // necessary to use exports like this for node scripts
+module.exports = app;
