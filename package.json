@@ -17,7 +17,10 @@
     "copyassets": "cp -a ./src/public/. ./dist/",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "test": "jest"
+    "test": "jest",
+    "update-changelog": "yarn run auto-changelog && git add . && git commit -m 'Update Changelog' && git push",
+    "update-tags": "PACKAGE_VERSION=$(cat package.json | grep \\\"version\\\" | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git tag v$PACKAGE_VERSION && git push --tags",
+    "publish": "yarn run update-changelog && yarn run update-tags"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
@@ -25,6 +28,7 @@
     "@storybook/addon-links": "^5.0.3",
     "@storybook/addons": "^5.0.3",
     "@storybook/react": "^5.0.3",
+    "auto-changelog": "^1.12.1",
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.5.0",
@@ -66,5 +70,11 @@
     "redux-logger": "^3.0.6",
     "redux-persist": "^5.10.0",
     "redux-saga": "^1.0.2"
+  },
+  "auto-changelog": {
+    "output": "CHANGELOG.md",
+    "template": "keepachangelog",
+    "unreleased": true,
+    "commitLimit": false
   }
 }
