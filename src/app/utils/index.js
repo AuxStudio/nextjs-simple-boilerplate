@@ -1,9 +1,9 @@
-import prepareNextAction from './prepareNextActions';
+import prepareNextActions from './prepareNextActions';
 
 const utils = {
-  prepareNextAction,
+  prepareNextActions,
 };
 
-export { prepareNextAction };
+export { prepareNextActions };
 
 export default utils;
