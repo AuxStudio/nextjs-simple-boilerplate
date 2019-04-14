@@ -1,8 +1,6 @@
 # nextjs-simple-boilerplate
 
-A Next.js, Firebase and Redux boilerplate that we use internally
-
-`NOTE: ENV refers to the environment you are deploying to, ie. development, testing, staging, production.`
+A Next.js, Firebase and Redux boilerplate that we use internally.
 
 ## What's in the box?
 
@@ -34,6 +32,8 @@ A Next.js, Firebase and Redux boilerplate that we use internally
 ## Usage
 
 Take a look at the [Setup Guide](./docs/SETUP_GUIDE.md).
+
+`NOTE: ENV refers to the environment you are deploying to, ie. development, testing, staging, production.`
 
 TODO: Style guide
 
