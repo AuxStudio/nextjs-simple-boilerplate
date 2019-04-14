@@ -1,7 +1,8 @@
+import app from '../app';
 import SEO from '../SEO';
 
 const getTitle = (page) => {
-  const title = `${page} | APP NAME`; // TODO:
+  const title = `${page} | ${app.name}`;
 
   return title;
 };
