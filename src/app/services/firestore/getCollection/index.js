@@ -1,19 +1,18 @@
 import getRef from '../getRef';
 
-// Gets a collection from firestore, queries it (if query (array) provided) and
+// Gets a collection from firestore, queries it (if queries (array) provided) and
 // parses the snapshot to return docs data only
-export default function getCollection({ url, query }) {
+export default function getCollection({ url, queries }) {
   return new Promise(async (resolve, reject) => {
-    const ref = await getRef(url);
-    let newRef;
+    let ref = await getRef(url);
 
-    if (query) {
-      newRef = ref.where(...query);
-    } else {
-      newRef = ref;
+    if (queries) {
+      queries.forEach((query) => {
+        ref = ref.where(...query);
+      });
     }
 
-    newRef
+    ref
       .get()
       .then((collection) => {
         try {
