@@ -12,7 +12,7 @@ const defaultDescription = SEO.description;
 
 const HeadComponent = ({ router }) => {
   const { pathname } = router;
-  const route = routes.filter((item) => item.href === pathname);
+  const route = routes.filter((item) => item.href === pathname)[0];
   const title = route.title || defaultTitle;
   const description = route.description || defaultDescription;
 
