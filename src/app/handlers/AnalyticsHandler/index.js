@@ -6,6 +6,7 @@ import ReactGA from 'react-ga';
 import { analytics } from '../../config';
 
 const { trackingID } = analytics;
+const isDev = !process.env.REACT_APP_ENV || process.env.REACT_APP_ENV === 'dev';
 
 export class AnalyticsHandler extends React.Component {
   constructor(props) {
@@ -40,7 +41,7 @@ export class AnalyticsHandler extends React.Component {
   }
 
   initialiseGA() {
-    ReactGA.initialize(trackingID);
+    ReactGA.initialize(trackingID, { debug: isDev });
   }
 
   setUserID(uid) {
