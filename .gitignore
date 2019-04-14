@@ -9,6 +9,10 @@ settings.json
 # next
 .next
 .env
+.env.dev
+.env.testing
+.env.staging
+.env.production
 out
 dist
 src/public/robots.txt
