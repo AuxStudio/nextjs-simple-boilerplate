@@ -1,9 +1,5 @@
-import prepareNextActions from './prepareNextActions';
+const utils = {};
 
-const utils = {
-  prepareNextActions,
-};
-
-export { prepareNextActions };
+export {};
 
 export default utils;

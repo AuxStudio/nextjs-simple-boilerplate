@@ -3,7 +3,7 @@ import createUID from 'js-simple-utils/dist/createUID'; // FIXME: export correct
 
 import createChannel from './createChannel';
 import onError from '../onError';
-import { prepareNextActions } from '../../../utils';
+import prepareNextActions from '../prepareNextActions';
 
 /*
   Event Channel saga:

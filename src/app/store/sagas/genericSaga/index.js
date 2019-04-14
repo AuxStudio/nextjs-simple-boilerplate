@@ -2,7 +2,7 @@ import { call, put, all } from 'redux-saga/effects';
 import createUID from 'js-simple-utils/dist/createUID'; // FIXME: export correctly
 
 import onError from '../onError';
-import { prepareNextActions } from '../../../utils';
+import prepareNextActions from '../prepareNextActions';
 
 /*
   Generic saga:
