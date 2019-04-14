@@ -86,6 +86,8 @@ const HeadComponent = ({ router }) => {
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
       />
+
+      <noscript>Your browser does not support JavaScript!</noscript>
     </Head>
   );
 };
