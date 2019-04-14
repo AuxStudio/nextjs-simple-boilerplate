@@ -7,7 +7,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { persistStore } from 'redux-persist';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 
-import { global, helpers, theme } from '../static/styles';
+import { global, theme } from '../static/styles';
 import configureStore from '../store';
 
 import Head from '../components/Head';
@@ -54,10 +54,6 @@ export class TheApp extends App {
 
                 <style jsx global>
                   {global}
-                </style>
-
-                <style jsx global>
-                  {helpers}
                 </style>
 
                 <SystemMessageHandler>
