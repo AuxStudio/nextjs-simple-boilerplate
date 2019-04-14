@@ -6,8 +6,10 @@ const onError = (error) => {
   return put({
     type: 'SET_SYSTEM_MESSAGE',
     payload: {
-      message,
-      variant: 'error',
+      systemMessage: {
+        message,
+        variant: 'error',
+      },
     },
   });
 };
