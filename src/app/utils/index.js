@@ -1,4 +1,4 @@
-import prepareNextAction from './prepareNextAction';
+import prepareNextAction from './prepareNextActions';
 
 const utils = {
   prepareNextAction,

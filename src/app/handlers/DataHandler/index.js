@@ -33,9 +33,11 @@ export class DataHandler extends React.Component {
       type: 'sync',
       meta: {
         url: 'TODO',
-        nextAction: {
-          type: 'TODO',
-        },
+        nextActions: [
+          {
+            type: 'TODO',
+          },
+        ],
       },
     });
   }

@@ -33,9 +33,11 @@ export class AuthHandler extends React.Component {
     dispatch({
       type: 'getAuth',
       meta: {
-        nextAction: {
-          type: 'SIGN_IN_USER',
-        },
+        nextActions: [
+          {
+            type: 'SIGN_IN_USER',
+          },
+        ],
       },
     });
   }
@@ -46,9 +48,11 @@ export class AuthHandler extends React.Component {
     dispatch({
       type: 'signInAnonymously',
       meta: {
-        nextAction: {
-          type: 'SIGN_IN_USER',
-        },
+        nextActions: [
+          {
+            type: 'SIGN_IN_USER',
+          },
+        ],
       },
     });
   }

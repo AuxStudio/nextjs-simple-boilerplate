@@ -1,8 +1,8 @@
-import { call, put } from 'redux-saga/effects';
+import { call, put, all } from 'redux-saga/effects';
 import createUID from 'js-simple-utils/dist/createUID'; // FIXME: export correctly
 
 import onError from '../onError';
-import { prepareNextAction } from '../../../utils';
+import { prepareNextActions } from '../../../utils';
 
 /*
   Generic saga:
@@ -44,10 +44,10 @@ export default function* genericSaga(args, action) {
     // Prepare the next action
     // using the previous action's
     // and the response
-    const nextAction = prepareNextAction(action, response);
+    const nextActions = prepareNextActions(action, response);
 
-    if (nextAction) {
-      yield put(nextAction);
+    if (nextActions) {
+      yield all(nextActions.map((nextAction) => put(nextAction)));
     }
   } catch (error) {
     yield onError(error);

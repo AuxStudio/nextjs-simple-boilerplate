@@ -1,9 +1,9 @@
-import { call, put, take } from 'redux-saga/effects';
+import { call, put, take, all } from 'redux-saga/effects';
 import createUID from 'js-simple-utils/dist/createUID'; // FIXME: export correctly
 
 import createChannel from './createChannel';
 import onError from '../onError';
-import { prepareNextAction } from '../../../utils';
+import { prepareNextActions } from '../../../utils';
 
 /*
   Event Channel saga:
@@ -53,10 +53,10 @@ export default function* eventChannelSaga(args, action) {
       if (response.error) {
         yield onError(response.error);
       } else {
-        const nextAction = prepareNextAction(action, response);
+        const nextActions = prepareNextActions(action, response);
 
-        if (nextAction) {
-          yield put(nextAction);
+        if (nextActions) {
+          yield all(nextActions.map((nextAction) => put(nextAction)));
         }
       }
     }
