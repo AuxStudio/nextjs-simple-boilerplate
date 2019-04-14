@@ -2,12 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Router from 'next/router';
 import { connect } from 'react-redux';
-import { withSnackbar } from 'notistack';
 
-import { snackbar } from '../../config';
+import styles from './styles';
 
-import CircularProgress from '../../components/CircularProgress';
-import LinearProgress from '../../components/LinearProgress';
+import PageLoader from './PageLoader';
+import LinearProgress from './LinearProgress';
 
 export class PageLoadingHandler extends React.Component {
   constructor(props) {
@@ -15,17 +14,16 @@ export class PageLoadingHandler extends React.Component {
 
     this.onRouteChangeStart = this.onRouteChangeStart.bind(this);
     this.onRouteChangeComplete = this.onRouteChangeComplete.bind(this);
-    this.setIsLoading = this.setIsLoading.bind(this);
-    this.setSavedMessage = this.setSavedMessage.bind(this);
+    this.setIsPageLoading = this.setIsPageLoading.bind(this);
 
     this.state = {
-      isLoading: false,
+      isPageLoading: false,
     };
   }
 
   static propTypes = {
     isSaving: PropTypes.bool,
-    enqueueSnackbar: PropTypes.func, // notistack
+    isLoading: PropTypes.bool,
   };
 
   static defaultProps = {};
@@ -35,55 +33,39 @@ export class PageLoadingHandler extends React.Component {
     Router.events.on('routeChangeComplete', this.onRouteChangeComplete);
   }
 
-  componentDidUpdate(prevProps) {
-    const { isSaving } = this.props;
-
-    if (!isSaving && prevProps.isSaving) {
-      this.setSavedMessage();
-    }
-  }
-
   componentWillUnmount() {
     Router.events.off('routeChangeStart', this.onRouteChangeStart);
     Router.events.off('routeChangeComplete', this.onRouteChangeComplete);
   }
 
   onRouteChangeStart() {
-    this.setIsLoading(true);
+    this.setIsPageLoading(true);
   }
 
   onRouteChangeComplete() {
-    this.setIsLoading(false);
+    this.setIsPageLoading(false);
   }
 
-  setIsLoading(isLoading) {
+  setIsPageLoading(isPageLoading) {
     this.setState({
-      isLoading,
+      isPageLoading,
     });
   }
 
-  setSavedMessage() {
-    const { enqueueSnackbar } = this.props;
-
-    enqueueSnackbar('Saved successfully', { ...snackbar, variant: 'success' });
-  }
-
   render() {
-    const { isLoading } = this.state;
-    const { isSaving } = this.props;
+    const { isPageLoading } = this.state;
+    const { isSaving, isLoading } = this.props;
 
-    if (isLoading) {
-      return (
-        <div className="flex fixed stretch flex-center">
-          <CircularProgress />
-        </div>
-      );
+    if (isPageLoading) {
+      return <PageLoader />;
     }
 
-    if (isSaving) {
+    if (isSaving || isLoading) {
       return (
-        <div className="flex fixed stretch">
+        <div className="linear-progress-container">
           <LinearProgress />
+
+          <style jsx>{styles}</style>
         </div>
       );
     }
@@ -94,12 +76,16 @@ export class PageLoadingHandler extends React.Component {
 
 const mapStateToProps = (state) => {
   const { appState } = state;
-  const { pendingTransactions } = appState;
-  const isSaving = pendingTransactions.length ? true : false;
+  const { pendingTransactions, systemMessage, isLoading } = appState;
+  const { message } = systemMessage;
+
+  // Saving if we have pendingTransactions but we don't have an error message
+  const isSaving = pendingTransactions.length && !message ? true : false;
 
   return {
     isSaving,
+    isLoading,
   };
 };
 
-export default withSnackbar(connect(mapStateToProps)(PageLoadingHandler));
+export default connect(mapStateToProps)(PageLoadingHandler);
