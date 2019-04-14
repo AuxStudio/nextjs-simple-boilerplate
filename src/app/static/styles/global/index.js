@@ -14,7 +14,7 @@ const styles = css.global`
   body {
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Helvetica', 'Arial', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -39,7 +39,7 @@ const styles = css.global`
     border: none;
     padding: 0;
     cursor: pointer;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Helvetica', 'Arial', sans-serif;
   }
 
   button:disabled, button:disabled > .clickable {
