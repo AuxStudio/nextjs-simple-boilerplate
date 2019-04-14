@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-export class DataHandler extends React.Component {
+export class DataSyncingHandler extends React.Component {
   constructor(props) {
     super(props);
 
@@ -51,4 +51,4 @@ function mapStateToProps() {
   return {};
 }
 
-export default connect(mapStateToProps)(DataHandler);
+export default connect(mapStateToProps)(DataSyncingHandler);
