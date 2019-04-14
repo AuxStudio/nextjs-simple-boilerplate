@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 
 import styles from './styles';
 
-import { TitleText, ParagraphText } from '../Typography';
+import Typography from '../Typography';
 
 const Error = ({ errorMessage }) => {
   return (
     <div className="container">
-      <TitleText>Error</TitleText>
+      <Typography type="title">Error</Typography>
 
-      <ParagraphText>{errorMessage}</ParagraphText>
+      <Typography type="paragraph">{errorMessage}</Typography>
 
       <style jsx>{styles}</style>
     </div>

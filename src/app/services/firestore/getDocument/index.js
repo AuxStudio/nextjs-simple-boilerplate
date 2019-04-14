@@ -8,7 +8,7 @@ export default function getDocument({ url }) {
       .get()
       .then((document) => {
         try {
-          resolve({ document: document.data() });
+          resolve({ data: document.data() });
         } catch (error) {
           if (document.docs && true) {
             reject(new Error('References a document, not a collection'));

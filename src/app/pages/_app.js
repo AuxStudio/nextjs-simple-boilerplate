@@ -5,17 +5,19 @@ import withRedux from 'next-redux-wrapper';
 import withReduxSaga from 'next-redux-saga';
 import { PersistGate } from 'redux-persist/integration/react';
 import { persistStore } from 'redux-persist';
+import { MuiThemeProvider } from '@material-ui/core/styles';
 
-import { global, helpers } from '../static/styles';
+import { global, theme } from '../static/styles';
 import configureStore from '../store';
 
 import Head from '../components/Head';
-import Version from '../components/Version';
+import DevInfo from '../components/DevInfo';
 
 import AnalyticsHandler from '../handlers/AnalyticsHandler';
-import DataHandler from '../handlers/DataHandler';
+import AuthHandler from '../handlers/AuthHandler';
+import DataSyncingHandler from '../handlers/DataSyncingHandler';
 import ErrorHandler from '../handlers/ErrorHandler';
-import PageLoadingHandler from '../handlers/PageLoadingHandler';
+import LoadingHandler from '../handlers/LoadingHandler';
 import SystemMessageHandler from '../handlers/SystemMessageHandler';
 
 export class TheApp extends App {
@@ -44,35 +46,35 @@ export class TheApp extends App {
     const { Component, pageProps, store } = this.props;
 
     return (
-      <ErrorHandler>
-        <Container>
-          <Provider store={store}>
-            <PersistGate loading={null} persistor={this.persistor}>
-              <Head />
+      <MuiThemeProvider theme={theme}>
+        <ErrorHandler>
+          <Container>
+            <Provider store={store}>
+              <PersistGate loading={null} persistor={this.persistor}>
+                <Head />
 
-              <style jsx global>
-                {global}
-              </style>
+                <style jsx global>
+                  {global}
+                </style>
 
-              <style jsx global>
-                {helpers}
-              </style>
+                <SystemMessageHandler>
+                  <Component {...pageProps} />
 
-              <SystemMessageHandler>
-                <Component {...pageProps} />
+                  <AnalyticsHandler />
 
-                <AnalyticsHandler />
+                  <AuthHandler />
 
-                <DataHandler />
+                  <DataSyncingHandler />
 
-                <PageLoadingHandler />
+                  <LoadingHandler />
 
-                <Version />
-              </SystemMessageHandler>
-            </PersistGate>
-          </Provider>
-        </Container>
-      </ErrorHandler>
+                  <DevInfo />
+                </SystemMessageHandler>
+              </PersistGate>
+            </Provider>
+          </Container>
+        </ErrorHandler>
+      </MuiThemeProvider>
     );
   }
 }

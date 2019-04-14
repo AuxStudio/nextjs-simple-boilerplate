@@ -180,5 +180,24 @@
   "String literal": {
     "prefix": "str",
     "body": ["`${$1}`"]
+  },
+  "Comment": {
+    "prefix": "com",
+    "body": ["/*", " * $1", " */"]
+  },
+  "Function": {
+    "prefix": "func",
+    "body": ["const $1 = () => {};", "$2", "export default $1"]
+  },
+  "Story": {
+    "prefix": "story",
+    "body": [
+      "import React from 'react';",
+      "import { storiesOf } from '@storybook/react';",
+      "$2",
+      "import $1 from '..';",
+      "$2",
+      "storiesOf('Components|$1', module).add('default', () => <$1 />);"
+    ]
   }
 }

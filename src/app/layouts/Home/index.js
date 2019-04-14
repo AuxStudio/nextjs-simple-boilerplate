@@ -3,15 +3,18 @@ import PropTypes from 'prop-types';
 
 import styles from './styles';
 
-import { TitleText } from '../../components/Typography';
+import Layout from '../../components/Layout';
+import Typography from '../../components/Typography';
 
 const Home = () => {
   return (
-    <div className="container flex flex-center">
-      <TitleText>Hello World</TitleText>
+    <Layout>
+      <div className="container">
+        <Typography type="title">Hello World</Typography>
+      </div>
 
       <style jsx>{styles}</style>
-    </div>
+    </Layout>
   );
 };
 

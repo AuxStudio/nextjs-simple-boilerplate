@@ -2,25 +2,30 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { withRouter } from 'next/router';
+import { convertObjectToArray } from 'js-simple-utils';
 
-import { routes, SEO, styleConstants } from '../../config';
+import { routes, SEO } from '../../config';
+import { colors } from '../../static/styles/styleConstants';
 
-const { colors } = styleConstants;
 const primaryColor = colors.primary;
 const defaultTitle = SEO.title;
 const defaultDescription = SEO.description;
 
-const HeadComponent = ({ router }) => {
+const HeadComponent = ({ title, description, router }) => {
   const { pathname } = router;
-  const route = routes.filter((item) => item.href === pathname);
-  const title = route.title || defaultTitle;
-  const description = route.description || defaultDescription;
+  const routesArray = convertObjectToArray(routes);
+  const route = routesArray.filter((item) => item.href === pathname)[0];
+  const titleToUse = title || route.title || defaultTitle;
+  const descriptionToUse = description || route.description || defaultDescription;
 
   return (
     <Head>
       {/* Title and description */}
-      <title key="title">{title}</title>
-      <meta key="description" name="Description" content={description} />
+      <title key="title">{titleToUse}</title>
+
+      <meta key="description" name="Description" content={descriptionToUse} />
+
+      <meta key="keywords" name="keywords" content={SEO.keywords} />
 
       {/* Responsiveness */}
       <meta
@@ -62,12 +67,7 @@ const HeadComponent = ({ router }) => {
       <meta key="theme-color" name="theme-color" content={primaryColor} />
 
       {/* Manifest file */}
-      <link
-        key="manifest"
-        type="application/manifest+json"
-        rel="manifest"
-        href="/static/manifest.json"
-      />
+      <link key="manifest" type="application/manifest+json" rel="manifest" href="/manifest.json" />
 
       {/* Open graph */}
       <meta key="og:url" property="og:url" content={SEO.openGraph.url} />
@@ -87,13 +87,14 @@ const HeadComponent = ({ router }) => {
         href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
       />
 
-      {/* material-ui */}
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
+      <noscript>Your browser does not support JavaScript!</noscript>
     </Head>
   );
 };
 
 HeadComponent.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
   router: PropTypes.shape({
     pathname: PropTypes.string,
   }),

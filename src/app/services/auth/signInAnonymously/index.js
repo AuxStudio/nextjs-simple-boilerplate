@@ -7,14 +7,7 @@ export default function signInAnonymously() {
     fb.auth()
       .signInAnonymously()
       .then((data) => {
-        const response = data && {
-          user: {
-            uid: data.user.uid,
-            isAnonymous: data.user.isAnonymous,
-          },
-        };
-
-        resolve(response);
+        resolve({ user: data.user });
       })
       .catch((error) => {
         reject(error);

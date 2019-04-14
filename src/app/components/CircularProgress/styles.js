@@ -1,6 +1,4 @@
-import { styleConstants } from '../../config';
-
-const { colors } = styleConstants;
+import { colors } from '../../static/styles/styleConstants';
 
 const styles = {
   container: {
