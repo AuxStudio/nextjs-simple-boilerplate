@@ -14,6 +14,7 @@ import Head from '../components/Head';
 import DevInfo from '../components/DevInfo';
 
 import AnalyticsHandler from '../handlers/AnalyticsHandler';
+import AuthHandler from '../handlers/AuthHandler';
 import DataHandler from '../handlers/DataHandler';
 import ErrorHandler from '../handlers/ErrorHandler';
 import PageLoadingHandler from '../handlers/PageLoadingHandler';
@@ -60,6 +61,8 @@ export class TheApp extends App {
                   <Component {...pageProps} />
 
                   <AnalyticsHandler />
+
+                  <AuthHandler />
 
                   <DataHandler />
 
