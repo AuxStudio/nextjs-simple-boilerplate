@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { withRouter } from 'next/router';
+import { convertObjectToArray } from 'js-simple-utils';
 
 import { routes, SEO } from '../../config';
 import { colors } from '../../static/styles/styleConstants';
@@ -12,7 +13,8 @@ const defaultDescription = SEO.description;
 
 const HeadComponent = ({ router }) => {
   const { pathname } = router;
-  const route = routes.filter((item) => item.href === pathname)[0];
+  const routesArray = convertObjectToArray(routes);
+  const route = routesArray.filter((item) => item.href === pathname)[0];
   const title = route.title || defaultTitle;
   const description = route.description || defaultDescription;
 
