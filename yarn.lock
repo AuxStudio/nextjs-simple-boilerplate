@@ -4680,9 +4680,9 @@ eslint-config-airbnb@^17.1.0:
     object.assign "^4.1.0"
     object.entries "^1.0.4"
 
-eslint-config-aux@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/eslint-config-aux/-/eslint-config-aux-1.0.5.tgz#6df0fccce5804685791a79bd263d4d7a78ab0c66"
+eslint-config-aux@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/eslint-config-aux/-/eslint-config-aux-1.1.1.tgz#d8c47d8b6635b3f47067ea7cd7e4cf2f71b10da9"
   dependencies:
     babel-eslint "^10.0.1"
     eslint "^5.15.1"
@@ -4691,8 +4691,6 @@ eslint-config-aux@^1.0.5:
     eslint-plugin-import "^2.16.0"
     eslint-plugin-jsx-a11y "^6.2.1"
     eslint-plugin-react "^7.12.4"
-    prettier "^1.16.4"
-    prettier-config-aux "^0.1.0"
 
 eslint-config-prettier@^4.1.0:
   version "4.1.0"
@@ -8166,12 +8164,6 @@ postcss@^7.0.0, postcss@^7.0.14, postcss@^7.0.5, postcss@^7.0.6:
 prelude-ls@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"
-
-prettier-config-aux@^0.1.0:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/prettier-config-aux/-/prettier-config-aux-0.1.1.tgz#17111d59beb5190f152e829be74f594d5ab44339"
-  dependencies:
-    prettier "^1.16.4"
 
 prettier-config-aux@^1.0.1:
   version "1.0.1"
