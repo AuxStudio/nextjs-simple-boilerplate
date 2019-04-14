@@ -11,19 +11,19 @@ const primaryColor = colors.primary;
 const defaultTitle = SEO.title;
 const defaultDescription = SEO.description;
 
-const HeadComponent = ({ router }) => {
+const HeadComponent = ({ title, description, router }) => {
   const { pathname } = router;
   const routesArray = convertObjectToArray(routes);
   const route = routesArray.filter((item) => item.href === pathname)[0];
-  const title = route.title || defaultTitle;
-  const description = route.description || defaultDescription;
+  const titleToUse = title || route.title || defaultTitle;
+  const descriptionToUse = description || route.description || defaultDescription;
 
   return (
     <Head>
       {/* Title and description */}
-      <title key="title">{title}</title>
+      <title key="title">{titleToUse}</title>
 
-      <meta key="description" name="Description" content={description} />
+      <meta key="description" name="Description" content={descriptionToUse} />
 
       <meta key="keywords" name="keywords" content={SEO.keywords} />
 
@@ -98,6 +98,8 @@ const HeadComponent = ({ router }) => {
 };
 
 HeadComponent.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
   router: PropTypes.shape({
     pathname: PropTypes.string,
   }),

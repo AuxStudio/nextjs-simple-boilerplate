@@ -3,12 +3,15 @@ import PropTypes from 'prop-types';
 
 import styles from './styles';
 
+import Head from '../Head';
 import HeaderBar from '../HeaderBar';
 import FooterBar from '../FooterBar';
 
-const Layout = ({ children }) => {
+const Layout = ({ title, description, children }) => {
   return (
     <div className="container">
+      <Head title={title} description={description} />
+
       <HeaderBar />
 
       <div className="content-container">{children}</div>
@@ -23,6 +26,8 @@ const Layout = ({ children }) => {
 };
 
 Layout.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
   children: PropTypes.node,
 };
 Layout.defaultProps = {};
