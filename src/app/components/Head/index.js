@@ -67,7 +67,12 @@ const HeadComponent = ({ title, description, router }) => {
       <meta key="theme-color" name="theme-color" content={primaryColor} />
 
       {/* Manifest file */}
-      <link key="manifest" type="application/manifest+json" rel="manifest" href="/manifest.json" />
+      <link
+        key="manifest"
+        type="application/manifest+json"
+        rel="manifest"
+        href="/static/manifest.json"
+      />
 
       {/* Open graph */}
       <meta key="og:url" property="og:url" content={SEO.openGraph.url} />
