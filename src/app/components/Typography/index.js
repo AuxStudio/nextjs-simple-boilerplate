@@ -4,12 +4,14 @@ import { Typography } from '@material-ui/core';
 
 import types from './types';
 import styles from './styles';
+import { colors } from '../../static/styles/styleConstants';
 
 const boldText = ['title', 'heading', 'link'];
 
 const TypographyComponent = ({
   type,
   fontSize,
+  secondary,
   color,
   bold,
   center,
@@ -20,6 +22,7 @@ const TypographyComponent = ({
   const variant = types[type];
   const allStyles = {
     ...(type === 'link' && styles.link),
+    ...(secondary && { color: colors.secondaryText }),
     ...(color && { color }),
     ...(center && styles.center),
     ...((bold || boldText.includes(type)) && styles.bold),
@@ -28,12 +31,7 @@ const TypographyComponent = ({
   };
 
   return (
-    <Typography
-      variant={variant}
-      color={type === 'link' ? 'primary' : 'secondary'}
-      gutterBottom={gutterBottom}
-      style={allStyles}
-    >
+    <Typography variant={variant} color="primary" gutterBottom={gutterBottom} style={allStyles}>
       {children}
     </Typography>
   );
@@ -42,6 +40,7 @@ const TypographyComponent = ({
 TypographyComponent.propTypes = {
   type: PropTypes.oneOf(['title', 'heading', 'paragraph', 'small', 'link']),
   fontSize: PropTypes.number,
+  secondary: PropTypes.bool,
   color: PropTypes.string,
   bold: PropTypes.bool,
   center: PropTypes.bool,
@@ -49,6 +48,8 @@ TypographyComponent.propTypes = {
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   style: PropTypes.shape({}),
 };
-TypographyComponent.defaultProps = {};
+TypographyComponent.defaultProps = {
+  color: colors.primaryText,
+};
 
 export default TypographyComponent;

@@ -47,7 +47,7 @@ const styles = css.global`
   }
 
   button:focus, .button:focus, a:focus, input:focus, select:focus, div[role='button']:focus {
-    outline: 2px solid ${colors.accent2};
+    outline: 2px solid ${colors.secondary};
   }
 `;
 
