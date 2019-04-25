@@ -15,8 +15,8 @@ const HeadComponent = ({ title, description, router }) => {
   const { pathname } = router;
   const routesArray = convertObjectToArray(routes);
   const route = routesArray.filter((item) => item.href === pathname)[0];
-  const titleToUse = title || route.title || defaultTitle;
-  const descriptionToUse = description || route.description || defaultDescription;
+  const titleToUse = title || (route && route.title) || defaultTitle;
+  const descriptionToUse = description || (route && route.description) || defaultDescription;
 
   return (
     <Head>
