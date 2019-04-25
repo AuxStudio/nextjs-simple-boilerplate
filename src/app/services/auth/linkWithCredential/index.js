@@ -5,7 +5,7 @@ export default function linkWithCredential({ credential }) {
     const fb = await firebase();
 
     fb.auth()
-      .currentUser.linkWithCredential(credential)
+      .currentUser.linkAndRetrieveDataWithCredential(credential)
       .then(({ user }) => {
         resolve({ user });
       })
