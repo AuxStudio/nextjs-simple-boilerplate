@@ -29,7 +29,7 @@ export class FormContainer extends React.Component {
         validator: PropTypes.func,
       }),
     ).isRequired,
-    footerText: PropTypes.string,
+    footerComponent: PropTypes.node,
     submitButtonText: PropTypes.string,
     disabled: PropTypes.bool,
     handleChange: PropTypes.func,
@@ -46,9 +46,9 @@ export class FormContainer extends React.Component {
     const { name, value } = input;
     const inputValue = this.getInputValue(input);
     const field = fields.filter((item) => item.name === name)[0];
-    const { select } = field;
+    const { type } = field;
 
-    if (select) {
+    if (type === 'select') {
       const { values } = this.state;
       values[name] = value;
 
@@ -140,7 +140,7 @@ export class FormContainer extends React.Component {
 
   render() {
     const { fieldIndicesWithErrors, values } = this.state;
-    const { fields, footerText, submitButtonText, disabled } = this.props;
+    const { fields, footerComponent, submitButtonText, disabled } = this.props;
     let newFields = cloneObject(fields); // clone the object so that we don't mutate fields (will cause Form not to update)
 
     /*
@@ -173,7 +173,7 @@ export class FormContainer extends React.Component {
     return (
       <Form
         fields={newFields}
-        footerText={footerText}
+        footerComponent={footerComponent}
         submitButtonText={submitButtonText}
         disabled={disabled}
         handleChange={this.onChange}

@@ -4,20 +4,16 @@ import { TextField, MenuItem } from '@material-ui/core';
 
 import styles from './styles';
 
-import Typography from '../Typography';
 import PrimaryButton from '../PrimaryButton';
 
-const Form = ({ fields, footerText, submitButtonText, disabled, handleChange, handleSubmit }) => {
-  const footerTextComponent = footerText && (
-    <div className="footer-text-container">
-      <Typography type="small" center>
-        {footerText}
-      </Typography>
-
-      <style jsx>{styles}</style>
-    </div>
-  );
-
+const Form = ({
+  fields,
+  footerComponent,
+  submitButtonText,
+  disabled,
+  handleChange,
+  handleSubmit,
+}) => {
   return (
     <form onSubmit={handleSubmit} className="container">
       {fields.map((field) => {
@@ -29,8 +25,12 @@ const Form = ({ fields, footerText, submitButtonText, disabled, handleChange, ha
           required,
           hasError,
           errorMessage,
-          select,
           options,
+          placeholder,
+          autoFocus,
+          min,
+          max,
+          pattern,
         } = field;
 
         return (
@@ -45,7 +45,14 @@ const Form = ({ fields, footerText, submitButtonText, disabled, handleChange, ha
               fullWidth
               helperText={hasError && errorMessage}
               error={hasError}
-              select={select}
+              select={type === 'select'}
+              placeholder={placeholder}
+              autoFocus={autoFocus}
+              inputProps={{
+                min,
+                max,
+                pattern,
+              }}
             >
               {options &&
                 options.map((option) => {
@@ -60,7 +67,7 @@ const Form = ({ fields, footerText, submitButtonText, disabled, handleChange, ha
         );
       })}
 
-      {footerTextComponent}
+      {footerComponent}
 
       <PrimaryButton type="submit" disabled={disabled}>
         {submitButtonText}
@@ -75,7 +82,16 @@ Form.propTypes = {
   fields: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,
-      type: PropTypes.oneOf(['text', 'number', 'email', 'password', 'date', 'tel', 'file']),
+      type: PropTypes.oneOf([
+        'text',
+        'number',
+        'email',
+        'password',
+        'date',
+        'tel',
+        'file',
+        'select',
+      ]),
       value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
       label: PropTypes.string,
       required: PropTypes.bool,
@@ -83,16 +99,20 @@ Form.propTypes = {
       helperText: PropTypes.string,
       hasError: PropTypes.bool,
       errorMessage: PropTypes.string, // FIXME: Required if validator is supplied
-      select: PropTypes.bool,
       options: PropTypes.arrayOf(
         PropTypes.shape({
           value: PropTypes.string,
           label: PropTypes.string,
         }),
       ),
+      placeholder: PropTypes.string,
+      autoFocus: PropTypes.bool,
+      min: PropTypes.string,
+      max: PropTypes.string,
+      pattern: PropTypes.string,
     }),
   ).isRequired,
-  footerText: PropTypes.string,
+  footerComponent: PropTypes.node,
   submitButtonText: PropTypes.string,
   disabled: PropTypes.bool,
   handleChange: PropTypes.func,
