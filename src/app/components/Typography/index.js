@@ -7,18 +7,33 @@ import styles from './styles';
 
 const boldText = ['title', 'heading', 'link'];
 
-const TypographyComponent = ({ type, color, bold, center, gutterBottom, children, style }) => {
+const TypographyComponent = ({
+  type,
+  fontSize,
+  color,
+  bold,
+  center,
+  gutterBottom,
+  children,
+  style,
+}) => {
   const variant = types[type];
   const allStyles = {
     ...(type === 'link' && styles.link),
     ...(color && { color }),
     ...(center && styles.center),
     ...((bold || boldText.includes(type)) && styles.bold),
+    ...(fontSize && { fontSize }),
     ...style,
   };
 
   return (
-    <Typography variant={variant} gutterBottom={gutterBottom} style={allStyles}>
+    <Typography
+      variant={variant}
+      color={type === 'link' ? 'primary' : 'secondary'}
+      gutterBottom={gutterBottom}
+      style={allStyles}
+    >
       {children}
     </Typography>
   );
@@ -26,6 +41,7 @@ const TypographyComponent = ({ type, color, bold, center, gutterBottom, children
 
 TypographyComponent.propTypes = {
   type: PropTypes.oneOf(['title', 'heading', 'paragraph', 'small', 'link']),
+  fontSize: PropTypes.number,
   color: PropTypes.string,
   bold: PropTypes.bool,
   center: PropTypes.bool,
