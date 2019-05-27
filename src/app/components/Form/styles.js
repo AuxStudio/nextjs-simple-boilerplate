@@ -9,12 +9,13 @@ const styles = css`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-width: ${sizes.maxContentWidth}px;
+    margin: 0 auto;
   }
 
   .input-container {
-    max-width: ${sizes.maxContentWidth}px;
-    width: 100%;
     margin-bottom: ${rhythm.vt}px;
+    width: 100%;
   }
 
   .footer-text-container {

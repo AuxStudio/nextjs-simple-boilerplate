@@ -22,12 +22,14 @@ git clone https://github.com/AuxStudio/nextjs-simple-boilerplate.git PROJECT_NAM
 1. Remove the original git.
 
 ```
-rm -R .git
+cd PROJECT_NAME
+sudo rm -R .git
 ```
 
 2. Add your own.
 
 ```
+git init
 git add .
 git commit -m "Initialise project"
 git remote add origin NEW_GIT
@@ -43,6 +45,7 @@ yarn
 ## 4. Make it your own
 
 FIXME: Automate this step. Take a look at cookie-cutter.
+TODO: These steps are stuffed
 
 1. Update `./package.json` name, description, repository etc.
 2. Update `./README.md` with your project title, description and repo url. Remove everything you don't need.
@@ -95,4 +98,7 @@ REACT_APP_GTM_ID=X
 ```
 rm -R ./docs/*
 rm -R ./tools/*
+rm ./CHANGELOG.md
+rm ./CONTRIBUTING.md
+rm ./CODE_OF_CONDUCT.md
 ```

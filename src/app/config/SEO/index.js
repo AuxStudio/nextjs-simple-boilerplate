@@ -22,6 +22,7 @@ const SEO = {
     handle: '',
     cardType: 'summary_large_image',
   },
+  // TODO: Update these details
   richText: {
     openingHours: 'Mo,Tu,We,Th,Fr 07:00-14:00',
     streetAddress: '',

@@ -6,6 +6,7 @@ export class AuthHandler extends React.Component {
   constructor(props) {
     super(props);
 
+    this.getAuth = this.getAuth.bind(this);
     this.signInAnonymously = this.signInAnonymously.bind(this);
   }
 

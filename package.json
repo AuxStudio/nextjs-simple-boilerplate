@@ -26,7 +26,7 @@
     "build-development": "cp ./src/app/.env.dev ./src/app/.env && yarn run build && yarn run export && yarn run build-storybook",
     "build-testing": "cp ./src/app/.env.testing ./src/app/.env && yarn run build && yarn run export && yarn run build-storybook",
     "build-staging": "cp ./src/app/.env.staging ./src/app/.env && yarn run build && yarn run export && yarn run build-storybook",
-    "build-production": "cp ./src/app/.env.prod ./src/app/.env && yarn run build && yarn run export && yarn run build-storybook",
+    "build-production": "cp ./src/app/.env.prod ./src/app/.env && yarn run build && yarn run export",
     "deploy": "firebase deploy",
     "deploy-development": "firebase use development && yarn run deploy",
     "deploy-testing": "firebase use testing && yarn run deploy",
