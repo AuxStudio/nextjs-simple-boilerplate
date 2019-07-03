@@ -23,6 +23,7 @@
     "update-changelog": "yarn run auto-changelog && git add . && git commit -m 'Update Changelog' && git push",
     "update-tags": "PACKAGE_VERSION=$(cat package.json | grep \\\"version\\\" | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git tag v$PACKAGE_VERSION && git push --tags",
     "publish": "yarn run update-changelog && yarn run update-tags",
+    "update-deps": "ncu -u && yarn install",
     "build-development": "cp ./src/app/.env.dev ./src/app/.env && yarn run build && yarn run export && yarn run build-storybook",
     "build-testing": "cp ./src/app/.env.testing ./src/app/.env && yarn run build && yarn run export && yarn run build-storybook",
     "build-staging": "cp ./src/app/.env.staging ./src/app/.env && yarn run build && yarn run export && yarn run build-storybook",

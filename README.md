@@ -63,7 +63,15 @@ yarn run dev
 
 On PR approval and merge into master:
 
-6. yarn run publish
+6. yarn run publish\
+
+### Upgrade dependencies
+
+1. Run update script:
+
+```
+yarn run update-deps
+```
 
 ## Storybook
 
