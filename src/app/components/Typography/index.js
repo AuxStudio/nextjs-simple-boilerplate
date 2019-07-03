@@ -22,8 +22,8 @@ const TypographyComponent = ({
   const variant = types[type];
   const allStyles = {
     ...(type === 'link' && styles.link),
-    ...(secondary && { color: colors.secondaryText }),
     ...(color && { color }),
+    ...(secondary && { color: colors.secondaryText }),
     ...(center && styles.center),
     ...((bold || boldText.includes(type)) && styles.bold),
     ...(fontSize && { fontSize }),
@@ -31,7 +31,7 @@ const TypographyComponent = ({
   };
 
   return (
-    <Typography variant={variant} color="primary" gutterBottom={gutterBottom} style={allStyles}>
+    <Typography variant={variant} color="secondary" gutterBottom={gutterBottom} style={allStyles}>
       {children}
     </Typography>
   );
