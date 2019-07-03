@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Button } from '@material-ui/core';
 
 import styles from './styles';
+import { colors } from '../../static/styles/styleConstants';
 
 import Icon from '../Icon';
 
@@ -12,15 +13,18 @@ const PrimaryButton = ({
   href,
   iconName,
   secondary,
+  accent,
   small,
   ghost,
+  text,
   children,
   disabled,
   handleClick,
 }) => {
   const style = {
     ...styles.container,
-    ...(!secondary && !ghost && !disabled && { color: 'white' }),
+    ...(!secondary && !ghost && !disabled && !text && { color: 'white' }),
+    ...(accent && { backgroundColor: colors.accent }),
   };
 
   const iconComponent = iconName && (
@@ -32,8 +36,8 @@ const PrimaryButton = ({
   const buttonComponent = (
     <Button
       type={type}
-      variant={ghost ? 'outlined' : 'contained'}
-      color={secondary ? 'secondary' : 'primary'}
+      variant={ghost ? 'outlined' : text ? 'text' : 'contained'}
+      color={secondary || text ? 'secondary' : 'primary'}
       size={small ? 'small' : 'large'}
       style={style}
       disabled={disabled}
@@ -57,8 +61,10 @@ PrimaryButton.propTypes = {
   href: PropTypes.string,
   iconName: PropTypes.string,
   secondary: PropTypes.bool,
+  accent: PropTypes.bool,
   small: PropTypes.bool,
   ghost: PropTypes.bool,
+  text: PropTypes.bool,
   children: PropTypes.node,
   disabled: PropTypes.bool,
   handleClick: PropTypes.func,

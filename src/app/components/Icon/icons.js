@@ -1,8 +1,8 @@
 import React from 'react';
-import { Close } from '@material-ui/icons';
+import { Add } from '@material-ui/icons';
 
 const icons = {
-  close: (props) => <Close {...props} />,
+  add: (props) => <Add {...props} />,
 };
 
 export default icons;
