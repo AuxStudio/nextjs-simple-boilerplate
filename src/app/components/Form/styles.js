@@ -10,6 +10,7 @@ const styles = css`
     justify-content: center;
     max-width: ${sizes.maxContentWidth}px;
     margin: 0 auto;
+    width: 100%;
   }
 
   .center {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { TextField, MenuItem } from '@material-ui/core';
 
@@ -49,6 +49,7 @@ const Form = ({
           max,
           pattern,
           multiline,
+          variant,
         } = field;
 
         return (
@@ -72,7 +73,8 @@ const Form = ({
                 max,
                 pattern,
               }}
-              variant="outlined"
+              variant={variant}
+              InputLabelProps={{ shrink: type === 'date' ? true : undefined }}
             >
               {options &&
                 options.map((option) => {
@@ -154,4 +156,4 @@ Form.propTypes = {
 };
 Form.defaultProps = {};
 
-export default Form;
+export default memo(Form);
