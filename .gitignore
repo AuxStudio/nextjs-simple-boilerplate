@@ -21,5 +21,4 @@ src/public/sitemap.xml
 # firebase
 .firebase
 firebase-debug.log
-.firebaserc
 
