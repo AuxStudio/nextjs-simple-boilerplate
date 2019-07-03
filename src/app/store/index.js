@@ -14,6 +14,7 @@ const persistConfig = {
   key: 'root',
   storage,
   blacklist: ['appState'],
+  timeout: 67,
 };
 const persistedReducer = persistReducer(persistConfig, reducers);
 
@@ -28,6 +29,14 @@ if (isDev) {
 
 function configureStore(initialState) {
   const store = createStore(persistedReducer, initialState, applyMiddleware(...middleware));
+
+  if (module.hot) {
+    module.hot.accept('./reducers', () => {
+      // This fetches the new state of the above reducers.
+      const nextRootReducer = reducers.default;
+      store.replaceReducer(persistReducer(persistConfig, nextRootReducer));
+    });
+  }
 
   store.runSagaTask = () => {
     store.sagaTask = sagaMiddleware.run(sagas);
