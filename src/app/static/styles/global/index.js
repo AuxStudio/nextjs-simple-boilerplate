@@ -1,20 +1,20 @@
 import css from 'styled-jsx/css';
 
-import { colors } from '../styleConstants';
-
 const styles = css.global`
   * {
     box-sizing: border-box;
   }
 
-  html, body, #__next {
+  html,
+  body,
+  #__next {
     height: 100%;
   }
 
   body {
     margin: 0;
     padding: 0;
-    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -25,7 +25,8 @@ const styles = css.global`
     height: auto;
   }
 
-  ul, figure {
+  ul,
+  figure {
     margin: 0;
     padding: 0;
   }
@@ -42,12 +43,9 @@ const styles = css.global`
     font-family: 'Helvetica', 'Arial', sans-serif;
   }
 
-  button:disabled, button:disabled > .clickable {
+  button:disabled,
+  button:disabled > .clickable {
     cursor: not-allowed;
-  }
-
-  button:focus, .button:focus, a:focus, input:focus, select:focus, div[role='button']:focus {
-    outline: 2px solid ${colors.secondary};
   }
 `;
 
