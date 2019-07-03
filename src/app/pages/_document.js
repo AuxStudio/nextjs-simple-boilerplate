@@ -41,9 +41,9 @@ export default class MyDocument extends Document {
           <Main />
 
           <NextScript />
-        </body>
 
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schema }} />
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schema }} />
+        </body>
       </html>
     );
   }
