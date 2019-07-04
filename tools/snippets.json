@@ -6,7 +6,7 @@
   "Dumb component": {
     "prefix": "dumbr",
     "body": [
-      "import React from 'react';",
+      "import React, { memo } from 'react';",
       "import PropTypes from 'prop-types';",
       "$2",
       "import styles from './styles';",
@@ -22,7 +22,7 @@
       "$1.propTypes = {};",
       "$1.defaultProps = {};",
       "$2",
-      "export default $1;",
+      "export default memo($1);",
       "$2"
     ]
   },
