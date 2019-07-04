@@ -2,12 +2,79 @@
 
 exports[`Home renders renders with minimum required props 1`] = `
 <div
-  className="jsx-1031917824 container flex flex-center"
+  className="jsx-597738785 container"
 >
-  <h1
-    className="jsx-2736794252"
+  <header
+    className="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary mui-fixed"
+    style={
+      Object {
+        "backgroundColor": "#FFF",
+        "zIndex": 1,
+      }
+    }
   >
-    Hello World
-  </h1>
+    <div
+      className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
+      style={
+        Object {
+          "justifyContent": "center",
+          "minHeight": 64,
+        }
+      }
+    >
+      <img
+        alt="Pep Logo"
+        className="jsx-3006533032 logo-image"
+        onClick={[Function]}
+        src="/static/images/logo.png"
+      />
+    </div>
+  </header>
+  <div
+    className="jsx-597738785 content-container"
+  >
+    <div
+      className="jsx-2522624865 container"
+    >
+      <h2
+        className="MuiTypography-root MuiTypography-h2 MuiTypography-colorSecondary"
+        style={
+          Object {
+            "color": "rgba(38, 50, 56, 1.0)",
+            "fontWeight": 700,
+          }
+        }
+      >
+        Hello World
+      </h2>
+    </div>
+  </div>
+  <div
+    className="jsx-597738785 footer-container"
+  >
+    <div
+      className="jsx-1265859943 container"
+    >
+      <div
+        className="jsx-1265859943 content-container"
+      >
+        <span
+          className="MuiTypography-root MuiTypography-caption MuiTypography-colorSecondary"
+          style={
+            Object {
+              "color": "white",
+            }
+          }
+        >
+          Footer
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    className="jsx-597738785 dev-info-container"
+  >
+    <DevInfo />
+  </div>
 </div>
 `;

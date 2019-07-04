@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './styles';
 
 import Layout from '../../components/Layout';
 import Typography from '../../components/Typography';
 
-const Error = () => {
+const Error = ({ errorMessage }) => {
   return (
     <Layout>
       <div className="container">
@@ -14,8 +15,7 @@ const Error = () => {
         </Typography>
 
         <Typography type="paragraph" center>
-          The page you&apos;re searching for doesn&apos;t exist. It has either been moved or the
-          link is broken.
+          {errorMessage}
         </Typography>
       </div>
 
@@ -24,7 +24,11 @@ const Error = () => {
   );
 };
 
-Error.propTypes = {};
-Error.defaultProps = {};
+Error.propTypes = {
+  errorMessage: PropTypes.string,
+};
+Error.defaultProps = {
+  errorMessage: "The page you're searching for doesn't exist. It has either been moved or the link is broken.",
+};
 
 export default Error;

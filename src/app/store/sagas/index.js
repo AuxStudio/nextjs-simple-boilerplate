@@ -2,10 +2,16 @@ import { takeEvery } from 'redux-saga/effects';
 
 import { logEvent } from '../../services/analytics';
 import {
+  createUserWithEmailAndPassword,
   getAuth,
+  getEmailAuthCredential,
   getPhoneAuthCredential,
   linkWithCredential,
+  sendPasswordResetEmail,
+  setUserEmail,
   signInAnonymously,
+  signInWithCredential,
+  signInWithCustomToken,
   signInWithEmail,
   signInWithPhoneNumber,
   signOut,
@@ -34,13 +40,22 @@ export default function* sagas() {
   yield takeEvery('logEvent', genericSaga, { service: logEvent });
 
   // Auth
+  yield takeEvery('createUserWithEmailAndPassword', genericSaga, {
+    service: createUserWithEmailAndPassword,
+  });
   yield takeEvery('getAuth', eventChannelSaga, { service: getAuth });
+  yield takeEvery('getEmailAuthCredential', genericSaga, { service: getEmailAuthCredential });
   yield takeEvery('getPhoneAuthCredential', genericSaga, { service: getPhoneAuthCredential });
   yield takeEvery('linkWithCredential', genericSaga, { service: linkWithCredential });
+  yield takeEvery('sendPasswordResetEmail', genericSaga, {
+    service: sendPasswordResetEmail,
+  });
+  yield takeEvery('setUserEmail', genericSaga, { service: setUserEmail });
   yield takeEvery('signInAnonymously', genericSaga, {
     service: signInAnonymously,
-    shouldTrackEvent: false,
   });
+  yield takeEvery('signInWithCredential', genericSaga, { service: signInWithCredential });
+  yield takeEvery('signInWithCustomToken', genericSaga, { service: signInWithCustomToken });
   yield takeEvery('signInWithEmail', genericSaga, { service: signInWithEmail });
   yield takeEvery('signInWithPhoneNumber', genericSaga, { service: signInWithPhoneNumber });
   yield takeEvery('signOut', genericSaga, { service: signOut });

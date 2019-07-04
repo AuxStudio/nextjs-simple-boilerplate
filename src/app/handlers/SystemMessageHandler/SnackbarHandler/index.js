@@ -2,14 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withSnackbar } from 'notistack';
-import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from '@material-ui/icons/Close';
+import { IconButton } from '@material-ui/core';
+import { Close as CloseIcon } from '@material-ui/icons';
 
 import { snackbar } from '../../../config';
 
 export class SnackbarHandler extends React.Component {
   constructor(props) {
     super(props);
+
+    this.resetPendingTransactions = this.resetPendingTransactions.bind(this);
+    this.resetSystemMessage = this.resetSystemMessage.bind(this);
 
     this.state = {};
   }
@@ -18,6 +21,7 @@ export class SnackbarHandler extends React.Component {
     dispatch: PropTypes.func,
     systemMessage: PropTypes.shape({
       message: PropTypes.string,
+      variant: PropTypes.string,
     }),
     enqueueSnackbar: PropTypes.func, // notistack
   };
@@ -38,11 +42,23 @@ export class SnackbarHandler extends React.Component {
           </IconButton>
         ),
       });
+
+      // Reset pendingTransactions since they have errored
+      if (variant === 'error') {
+        this.resetPendingTransactions();
+      }
+
+      // Reset the system message since its added to notistack above
+      this.resetSystemMessage();
     }
   }
 
-  onClose() {
-    this.resetSystemMessage();
+  resetPendingTransactions() {
+    const { dispatch } = this.props;
+
+    dispatch({
+      type: 'RESET_PENDING_TRANSACTIONS',
+    });
   }
 
   resetSystemMessage() {

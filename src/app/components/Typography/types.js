@@ -4,7 +4,7 @@
 const types = {
   title: 'h2',
   heading: 'h5',
-  paragraph: 'body1',
+  paragraph: 'body2',
   small: 'caption',
   link: 'body1',
 };

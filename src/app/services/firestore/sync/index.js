@@ -12,7 +12,7 @@ export default ({ url, queries }, callback) => {
 
     const unsubscribe = ref.onSnapshot(
       (snapshot) => {
-        let data;
+        let data = {};
 
         if (snapshot.docs) {
           /*

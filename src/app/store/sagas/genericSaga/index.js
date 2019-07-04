@@ -17,14 +17,14 @@ export default function* genericSaga(args, action) {
 
   try {
     const { payload } = action;
-    const eventID = shouldTrackEvent && createUID();
+    const eventId = shouldTrackEvent && createUID();
 
     // If shouldTrackEvent
     // Add a pendingTransaction to the store
     if (shouldTrackEvent) {
       yield put({
         type: 'ADD_PENDING_TRANSACTION',
-        payload: { event: { action, id: eventID } },
+        payload: { event: { action, id: eventId } },
       });
     }
 
@@ -36,7 +36,7 @@ export default function* genericSaga(args, action) {
       yield put({
         type: 'REMOVE_PENDING_TRANSACTION',
         payload: {
-          eventID,
+          eventId,
         },
       });
     }

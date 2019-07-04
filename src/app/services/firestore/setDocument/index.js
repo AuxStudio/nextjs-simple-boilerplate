@@ -5,7 +5,7 @@ export default ({ url, document }) => {
     const ref = await getRef(url);
 
     ref
-      .set(document)
+      .set(document, { merge: true })
       .then((response) => {
         // No response when document already exists
         const id = response && response.id;

@@ -3,21 +3,23 @@ import PropTypes from 'prop-types';
 
 import styles from './styles';
 
-import Head from '../Head';
 import HeaderBar from '../HeaderBar';
 import FooterBar from '../FooterBar';
+import DevInfo from '../DevInfo';
 
-const Layout = ({ title, description, children }) => {
+const Layout = ({ headerBarProps, children }) => {
   return (
     <div className="container">
-      <Head title={title} description={description} />
-
-      <HeaderBar />
+      <HeaderBar {...headerBarProps} />
 
       <div className="content-container">{children}</div>
 
       <div className="footer-container">
         <FooterBar />
+      </div>
+
+      <div className="dev-info-container">
+        <DevInfo />
       </div>
 
       <style jsx>{styles}</style>
@@ -26,8 +28,7 @@ const Layout = ({ title, description, children }) => {
 };
 
 Layout.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
+  headerBarProps: PropTypes.shape({}),
   children: PropTypes.node,
 };
 Layout.defaultProps = {};

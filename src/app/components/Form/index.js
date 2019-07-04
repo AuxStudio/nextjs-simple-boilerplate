@@ -33,12 +33,14 @@ export class FormContainer extends React.Component {
     children: PropTypes.node,
     submitButtonText: PropTypes.string,
     disabled: PropTypes.bool,
+    secondaryButton: PropTypes.shape({}),
+    center: PropTypes.bool,
     handleChange: PropTypes.func,
     handleSubmit: PropTypes.func,
   };
 
   static defaultProps = {
-    submitButtonText: 'Submit',
+    submitButtonText: 'SUBMIT',
   };
 
   onChange(event) {
@@ -141,46 +143,59 @@ export class FormContainer extends React.Component {
 
   render() {
     const { fieldIndicesWithErrors, values } = this.state;
-    const { fields, footerComponent, children, submitButtonText, disabled } = this.props;
+    const {
+      fields,
+      footerComponent,
+      children,
+      submitButtonText,
+      disabled,
+      secondaryButton,
+      center,
+    } = this.props;
     let newFields = cloneObject(fields); // clone the object so that we don't mutate fields (will cause Form not to update)
 
     /*
      * Attach errors and/or values in state
      */
-    newFields = newFields.map((field, index) => {
-      const newField = field;
-      const { name } = field;
-      const value = values[name];
+    newFields = newFields
+      ? newFields.map((field, index) => {
+          const newField = field;
+          const { name } = field;
+          const value = values[name];
 
-      /*
-       * If there is a value in state (used with select inputs)
-       * set it to the field
-       */
-      if (value) {
-        newField.value = value;
-      }
+          /*
+           * If there is a value in state (used with select inputs)
+           * set it to the field
+           */
+          if (value) {
+            newField.value = value;
+          }
 
-      /*
-       * If there is an error in state
-       * set it to the field
-       */
-      if (fieldIndicesWithErrors.includes(index)) {
-        newField.hasError = true;
-      }
+          /*
+           * If there is an error in state
+           * set it to the field
+           */
+          if (fieldIndicesWithErrors.includes(index)) {
+            newField.hasError = true;
+          }
 
-      return newField;
-    });
+          return newField;
+        })
+      : [];
 
     return (
       <Form
         fields={newFields}
         footerComponent={footerComponent}
-        children={children}
         submitButtonText={submitButtonText}
         disabled={disabled}
+        secondaryButton={secondaryButton}
+        center={center}
         handleChange={this.onChange}
         handleSubmit={this.onSubmit}
-      />
+      >
+        {children}
+      </Form>
     );
   }
 }

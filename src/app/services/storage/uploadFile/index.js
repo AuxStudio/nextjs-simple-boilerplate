@@ -1,6 +1,6 @@
-import { getStorageRef } from '..';
+import getStorageRef from '../getStorageRef';
 
-export default async (url, file, onProgress, onError, onFileUploaded) => {
+export default async ({ url, file, onProgress, onError, onFileUploaded }) => {
   const storageRef = await getStorageRef();
   const uploadTask = storageRef.child(url).put(file);
 

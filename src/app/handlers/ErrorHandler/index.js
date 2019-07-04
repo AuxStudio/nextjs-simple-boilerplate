@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Error from '../../components/Error';
+import Error from '../../layouts/Error';
 
 export class ErrorHandler extends React.Component {
   constructor(props) {
