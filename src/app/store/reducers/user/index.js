@@ -4,11 +4,12 @@ import initialState from './initialState';
 
 export default function reducer(state = initialState, action = {}) {
   let newState;
+  const { payload } = cloneObject(action);
 
   switch (action.type) {
     case 'SIGN_IN_USER':
       newState = cloneObject(state);
-      newState = action.payload.user;
+      newState = payload.user;
       return newState;
 
     case 'SIGN_OUT_USER':
