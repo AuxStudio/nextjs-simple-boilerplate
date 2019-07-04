@@ -1,13 +1,13 @@
-import { getStorageRef } from '..';
+import getStorageRef from '../getStorageRef';
 
-export default async (url, onFileDelete, onError) => {
+export default async ({ url, onFileDeleted, onError }) => {
   const storageRef = await getStorageRef();
 
   try {
     storageRef
       .child(url)
       .delete()
-      .then(onFileDelete)
+      .then(onFileDeleted)
       .catch(onError);
   } catch (error) {
     onError(error);
